@@ -150,15 +150,15 @@ public class CollectionLinkMetadata extends LinkMetadata {
                     }
                 }
                 if (f_url == null) {
-                    throw new JsonParseException(p, "Required field \"url\" missing.");
+                    throw new JsonParseException("Required field \"url\" missing.", p.getCurrentLocation());
                 }
                 if (f_visibility == null) {
-                    throw new JsonParseException(p, "Required field \"visibility\" missing.");
+                    throw new JsonParseException("Required field \"visibility\" missing.", p.getCurrentLocation());
                 }
                 value = new CollectionLinkMetadata(f_url, f_visibility, f_expires);
             }
             else {
-                throw new JsonParseException(p, "No subtype found that matches tag: \"" + tag + "\"");
+                throw new JsonParseException("No subtype found that matches tag: \"" + tag + "\"", p.getCurrentLocation());
             }
             if (!collapsed) {
                 expectEndObject(p);

@@ -252,7 +252,7 @@ public class VideoMetadata extends MediaMetadata {
                 value = new VideoMetadata(f_dimensions, f_location, f_timeTaken, f_duration);
             }
             else {
-                throw new JsonParseException(p, "No subtype found that matches tag: \"" + tag + "\"");
+                throw new JsonParseException("No subtype found that matches tag: \"" + tag + "\"", p.getCurrentLocation());
             }
             if (!collapsed) {
                 expectEndObject(p);

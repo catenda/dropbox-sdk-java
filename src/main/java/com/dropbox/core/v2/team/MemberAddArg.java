@@ -453,18 +453,18 @@ public class MemberAddArg {
                     }
                 }
                 if (f_memberEmail == null) {
-                    throw new JsonParseException(p, "Required field \"member_email\" missing.");
+                    throw new JsonParseException("Required field \"member_email\" missing.", p.getCurrentLocation());
                 }
                 if (f_memberGivenName == null) {
-                    throw new JsonParseException(p, "Required field \"member_given_name\" missing.");
+                    throw new JsonParseException("Required field \"member_given_name\" missing.", p.getCurrentLocation());
                 }
                 if (f_memberSurname == null) {
-                    throw new JsonParseException(p, "Required field \"member_surname\" missing.");
+                    throw new JsonParseException("Required field \"member_surname\" missing.", p.getCurrentLocation());
                 }
                 value = new MemberAddArg(f_memberEmail, f_memberGivenName, f_memberSurname, f_memberExternalId, f_sendWelcomeEmail, f_role);
             }
             else {
-                throw new JsonParseException(p, "No subtype found that matches tag: \"" + tag + "\"");
+                throw new JsonParseException("No subtype found that matches tag: \"" + tag + "\"", p.getCurrentLocation());
             }
             if (!collapsed) {
                 expectEndObject(p);

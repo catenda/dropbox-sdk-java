@@ -330,12 +330,12 @@ class MembersRemoveArg extends MembersDeactivateArg {
                     }
                 }
                 if (f_user == null) {
-                    throw new JsonParseException(p, "Required field \"user\" missing.");
+                    throw new JsonParseException("Required field \"user\" missing.", p.getCurrentLocation());
                 }
                 value = new MembersRemoveArg(f_user, f_wipeData, f_transferDestId, f_transferAdminId, f_keepAccount);
             }
             else {
-                throw new JsonParseException(p, "No subtype found that matches tag: \"" + tag + "\"");
+                throw new JsonParseException("No subtype found that matches tag: \"" + tag + "\"", p.getCurrentLocation());
             }
             if (!collapsed) {
                 expectEndObject(p);

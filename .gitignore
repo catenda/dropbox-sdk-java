@@ -2,6 +2,13 @@
 .gradle/
 build/
 
+# Eclipse
+.externalToolBuilders
+.settings
+.classpath
+.project
+/*/bin
+
 # Maven build output folder
 /target/
 
@@ -20,3 +27,4 @@ local.properties
 
 # pyc files from generator
 *.pyc
+/bin/

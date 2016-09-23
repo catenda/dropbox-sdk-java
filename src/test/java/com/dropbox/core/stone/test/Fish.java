@@ -181,18 +181,18 @@ public class Fish extends Pet {
                     }
                 }
                 if (f_name == null) {
-                    throw new JsonParseException(p, "Required field \"name\" missing.");
+                    throw new JsonParseException("Required field \"name\" missing.", p.getCurrentLocation());
                 }
                 if (f_species == null) {
-                    throw new JsonParseException(p, "Required field \"species\" missing.");
+                    throw new JsonParseException("Required field \"species\" missing.", p.getCurrentLocation());
                 }
                 if (f_tankSize == null) {
-                    throw new JsonParseException(p, "Required field \"tank_size\" missing.");
+                    throw new JsonParseException("Required field \"tank_size\" missing.", p.getCurrentLocation());
                 }
                 value = new Fish(f_name, f_species, f_tankSize, f_born);
             }
             else {
-                throw new JsonParseException(p, "No subtype found that matches tag: \"" + tag + "\"");
+                throw new JsonParseException("No subtype found that matches tag: \"" + tag + "\"", p.getCurrentLocation());
             }
             if (!collapsed) {
                 expectEndObject(p);

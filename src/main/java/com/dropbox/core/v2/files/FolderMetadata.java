@@ -446,15 +446,15 @@ public class FolderMetadata extends Metadata {
                     }
                 }
                 if (f_name == null) {
-                    throw new JsonParseException(p, "Required field \"name\" missing.");
+                    throw new JsonParseException("Required field \"name\" missing.", p.getCurrentLocation());
                 }
                 if (f_id == null) {
-                    throw new JsonParseException(p, "Required field \"id\" missing.");
+                    throw new JsonParseException("Required field \"id\" missing.", p.getCurrentLocation());
                 }
                 value = new FolderMetadata(f_name, f_id, f_pathLower, f_pathDisplay, f_parentSharedFolderId, f_sharedFolderId, f_sharingInfo, f_propertyGroups);
             }
             else {
-                throw new JsonParseException(p, "No subtype found that matches tag: \"" + tag + "\"");
+                throw new JsonParseException("No subtype found that matches tag: \"" + tag + "\"", p.getCurrentLocation());
             }
             if (!collapsed) {
                 expectEndObject(p);

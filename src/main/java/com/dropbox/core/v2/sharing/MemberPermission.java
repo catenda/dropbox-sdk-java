@@ -187,15 +187,15 @@ public class MemberPermission {
                     }
                 }
                 if (f_action == null) {
-                    throw new JsonParseException(p, "Required field \"action\" missing.");
+                    throw new JsonParseException("Required field \"action\" missing.", p.getCurrentLocation());
                 }
                 if (f_allow == null) {
-                    throw new JsonParseException(p, "Required field \"allow\" missing.");
+                    throw new JsonParseException("Required field \"allow\" missing.", p.getCurrentLocation());
                 }
                 value = new MemberPermission(f_action, f_allow, f_reason);
             }
             else {
-                throw new JsonParseException(p, "No subtype found that matches tag: \"" + tag + "\"");
+                throw new JsonParseException("No subtype found that matches tag: \"" + tag + "\"", p.getCurrentLocation());
             }
             if (!collapsed) {
                 expectEndObject(p);

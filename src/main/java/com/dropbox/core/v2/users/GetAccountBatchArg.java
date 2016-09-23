@@ -139,12 +139,12 @@ class GetAccountBatchArg {
                     }
                 }
                 if (f_accountIds == null) {
-                    throw new JsonParseException(p, "Required field \"account_ids\" missing.");
+                    throw new JsonParseException("Required field \"account_ids\" missing.", p.getCurrentLocation());
                 }
                 value = new GetAccountBatchArg(f_accountIds);
             }
             else {
-                throw new JsonParseException(p, "No subtype found that matches tag: \"" + tag + "\"");
+                throw new JsonParseException("No subtype found that matches tag: \"" + tag + "\"", p.getCurrentLocation());
             }
             if (!collapsed) {
                 expectEndObject(p);

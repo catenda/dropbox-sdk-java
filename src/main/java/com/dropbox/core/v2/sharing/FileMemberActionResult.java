@@ -157,15 +157,15 @@ public class FileMemberActionResult {
                     }
                 }
                 if (f_member == null) {
-                    throw new JsonParseException(p, "Required field \"member\" missing.");
+                    throw new JsonParseException("Required field \"member\" missing.", p.getCurrentLocation());
                 }
                 if (f_result == null) {
-                    throw new JsonParseException(p, "Required field \"result\" missing.");
+                    throw new JsonParseException("Required field \"result\" missing.", p.getCurrentLocation());
                 }
                 value = new FileMemberActionResult(f_member, f_result);
             }
             else {
-                throw new JsonParseException(p, "No subtype found that matches tag: \"" + tag + "\"");
+                throw new JsonParseException("No subtype found that matches tag: \"" + tag + "\"", p.getCurrentLocation());
             }
             if (!collapsed) {
                 expectEndObject(p);

@@ -146,15 +146,15 @@ public class MembersSetPermissionsResult {
                     }
                 }
                 if (f_teamMemberId == null) {
-                    throw new JsonParseException(p, "Required field \"team_member_id\" missing.");
+                    throw new JsonParseException("Required field \"team_member_id\" missing.", p.getCurrentLocation());
                 }
                 if (f_role == null) {
-                    throw new JsonParseException(p, "Required field \"role\" missing.");
+                    throw new JsonParseException("Required field \"role\" missing.", p.getCurrentLocation());
                 }
                 value = new MembersSetPermissionsResult(f_teamMemberId, f_role);
             }
             else {
-                throw new JsonParseException(p, "No subtype found that matches tag: \"" + tag + "\"");
+                throw new JsonParseException("No subtype found that matches tag: \"" + tag + "\"", p.getCurrentLocation());
             }
             if (!collapsed) {
                 expectEndObject(p);

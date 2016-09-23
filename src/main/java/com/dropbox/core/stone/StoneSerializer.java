@@ -71,70 +71,70 @@ public abstract class StoneSerializer<T> {
 
     protected static String getStringValue(JsonParser p) throws IOException, JsonParseException {
         if (p.getCurrentToken() != JsonToken.VALUE_STRING) {
-            throw new JsonParseException(p, "expected string value, but was " + p.getCurrentToken());
+            throw new JsonParseException("expected string value, but was " + p.getCurrentToken(), p.getCurrentLocation());
         }
         return p.getText();
     }
 
     protected static void expectField(String name, JsonParser p) throws IOException, JsonParseException {
         if (p.getCurrentToken() != JsonToken.FIELD_NAME) {
-            throw new JsonParseException(p, "expected field name, but was: " + p.getCurrentToken());
+            throw new JsonParseException("expected field name, but was: " + p.getCurrentToken(), p.getCurrentLocation());
         }
         if (!name.equals(p.getCurrentName())) {
-            throw new JsonParseException(p, "expected field '" + name + "', but was: '" + p.getCurrentName() + "'");
+            throw new JsonParseException("expected field '" + name + "', but was: '" + p.getCurrentName() + "'", p.getCurrentLocation());
         }
         p.nextToken();
     }
 
     protected static void expectStartObject(JsonParser p) throws IOException, JsonParseException {
         if (p.getCurrentToken() != JsonToken.START_OBJECT) {
-            throw new JsonParseException(p, "expected object value.");
+            throw new JsonParseException("expected object value.", p.getCurrentLocation());
         }
         p.nextToken();
     }
 
     protected static void expectEndObject(JsonParser p) throws IOException, JsonParseException {
         if (p.getCurrentToken() != JsonToken.END_OBJECT) {
-            throw new JsonParseException(p, "expected end of object value.");
+            throw new JsonParseException("expected end of object value.", p.getCurrentLocation());
         }
         p.nextToken();
     }
 
     protected static void expectStartArray(JsonParser p) throws IOException, JsonParseException {
         if (p.getCurrentToken() != JsonToken.START_ARRAY) {
-            throw new JsonParseException(p, "expected array value.");
+            throw new JsonParseException("expected array value.", p.getCurrentLocation());
         }
         p.nextToken();
     }
 
     protected static void expectEndArray(JsonParser p) throws IOException, JsonParseException {
         if (p.getCurrentToken() != JsonToken.END_ARRAY) {
-            throw new JsonParseException(p, "expected end of array value.");
+            throw new JsonParseException("expected end of array value.", p.getCurrentLocation());
         }
         p.nextToken();
     }
 
     protected static void skipValue(JsonParser p) throws IOException, JsonParseException {
-        if (p.getCurrentToken().isStructStart()) {
+        if (p.getCurrentToken() == JsonToken.START_ARRAY) {
             p.skipChildren(); // will leave parser at end token (e.g. '}' or ']')
             p.nextToken();
         } else if (p.getCurrentToken().isScalarValue()) {
             p.nextToken();
         } else {
-            throw new JsonParseException(p, "Can't skip JSON value token: " + p.getCurrentToken());
+            throw new JsonParseException("Can't skip JSON value token: " + p.getCurrentToken(), p.getCurrentLocation());
         }
     }
 
     protected static void skipFields(JsonParser p) throws IOException, JsonParseException {
-        while (p.getCurrentToken() != null && !p.getCurrentToken().isStructEnd()) {
-            if (p.getCurrentToken().isStructStart()) {
+        while (p.getCurrentToken() != null && !(p.getCurrentToken() == JsonToken.END_ARRAY)) {
+            if (p.getCurrentToken() == JsonToken.START_ARRAY) {
                 p.skipChildren();
             } else if (p.getCurrentToken() == JsonToken.FIELD_NAME) {
                 p.nextToken();
             } else if (p.getCurrentToken().isScalarValue()) {
                 p.nextToken();
             } else {
-                throw new JsonParseException(p, "Can't skip token: " + p.getCurrentToken());
+                throw new JsonParseException("Can't skip token: " + p.getCurrentToken(), p.getCurrentLocation());
             }
         }
     }

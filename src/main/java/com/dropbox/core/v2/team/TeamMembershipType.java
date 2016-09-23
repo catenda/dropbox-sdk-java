@@ -66,7 +66,7 @@ public enum TeamMembershipType {
                 tag = readTag(p);
             }
             if (tag == null) {
-                throw new JsonParseException(p, "Required field missing: " + TAG_FIELD);
+                throw new JsonParseException("Required field missing: " + TAG_FIELD, p.getCurrentLocation());
             }
             else if ("full".equals(tag)) {
                 value = TeamMembershipType.FULL;
@@ -75,7 +75,7 @@ public enum TeamMembershipType {
                 value = TeamMembershipType.LIMITED;
             }
             else {
-                throw new JsonParseException(p, "Unknown tag: " + tag);
+                throw new JsonParseException("Unknown tag: " + tag, p.getCurrentLocation());
             }
             if (!collapsed) {
                 expectEndObject(p);

@@ -244,7 +244,7 @@ class MembersListArg {
                 value = new MembersListArg(f_limit, f_includeRemoved);
             }
             else {
-                throw new JsonParseException(p, "No subtype found that matches tag: \"" + tag + "\"");
+                throw new JsonParseException("No subtype found that matches tag: \"" + tag + "\"", p.getCurrentLocation());
             }
             if (!collapsed) {
                 expectEndObject(p);

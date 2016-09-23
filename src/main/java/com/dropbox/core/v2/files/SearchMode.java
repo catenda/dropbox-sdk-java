@@ -72,7 +72,7 @@ public enum SearchMode {
                 tag = readTag(p);
             }
             if (tag == null) {
-                throw new JsonParseException(p, "Required field missing: " + TAG_FIELD);
+                throw new JsonParseException("Required field missing: " + TAG_FIELD, p.getCurrentLocation());
             }
             else if ("filename".equals(tag)) {
                 value = SearchMode.FILENAME;
@@ -84,7 +84,7 @@ public enum SearchMode {
                 value = SearchMode.DELETED_FILENAME;
             }
             else {
-                throw new JsonParseException(p, "Unknown tag: " + tag);
+                throw new JsonParseException("Unknown tag: " + tag, p.getCurrentLocation());
             }
             if (!collapsed) {
                 expectEndObject(p);

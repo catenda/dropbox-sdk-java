@@ -348,18 +348,18 @@ public class ApiApp {
                     }
                 }
                 if (f_appId == null) {
-                    throw new JsonParseException(p, "Required field \"app_id\" missing.");
+                    throw new JsonParseException("Required field \"app_id\" missing.", p.getCurrentLocation());
                 }
                 if (f_appName == null) {
-                    throw new JsonParseException(p, "Required field \"app_name\" missing.");
+                    throw new JsonParseException("Required field \"app_name\" missing.", p.getCurrentLocation());
                 }
                 if (f_isAppFolder == null) {
-                    throw new JsonParseException(p, "Required field \"is_app_folder\" missing.");
+                    throw new JsonParseException("Required field \"is_app_folder\" missing.", p.getCurrentLocation());
                 }
                 value = new ApiApp(f_appId, f_appName, f_isAppFolder, f_publisher, f_publisherUrl, f_linked);
             }
             else {
-                throw new JsonParseException(p, "No subtype found that matches tag: \"" + tag + "\"");
+                throw new JsonParseException("No subtype found that matches tag: \"" + tag + "\"", p.getCurrentLocation());
             }
             if (!collapsed) {
                 expectEndObject(p);

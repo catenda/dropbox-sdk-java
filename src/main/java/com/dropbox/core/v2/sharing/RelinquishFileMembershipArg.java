@@ -129,12 +129,12 @@ class RelinquishFileMembershipArg {
                     }
                 }
                 if (f_file == null) {
-                    throw new JsonParseException(p, "Required field \"file\" missing.");
+                    throw new JsonParseException("Required field \"file\" missing.", p.getCurrentLocation());
                 }
                 value = new RelinquishFileMembershipArg(f_file);
             }
             else {
-                throw new JsonParseException(p, "No subtype found that matches tag: \"" + tag + "\"");
+                throw new JsonParseException("No subtype found that matches tag: \"" + tag + "\"", p.getCurrentLocation());
             }
             if (!collapsed) {
                 expectEndObject(p);

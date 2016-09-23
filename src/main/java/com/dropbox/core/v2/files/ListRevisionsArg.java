@@ -169,12 +169,12 @@ class ListRevisionsArg {
                     }
                 }
                 if (f_path == null) {
-                    throw new JsonParseException(p, "Required field \"path\" missing.");
+                    throw new JsonParseException("Required field \"path\" missing.", p.getCurrentLocation());
                 }
                 value = new ListRevisionsArg(f_path, f_limit);
             }
             else {
-                throw new JsonParseException(p, "No subtype found that matches tag: \"" + tag + "\"");
+                throw new JsonParseException("No subtype found that matches tag: \"" + tag + "\"", p.getCurrentLocation());
             }
             if (!collapsed) {
                 expectEndObject(p);

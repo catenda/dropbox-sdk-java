@@ -350,7 +350,7 @@ public class Metadata {
                     }
                 }
                 if (f_name == null) {
-                    throw new JsonParseException(p, "Required field \"name\" missing.");
+                    throw new JsonParseException("Required field \"name\" missing.", p.getCurrentLocation());
                 }
                 value = new Metadata(f_name, f_pathLower, f_pathDisplay, f_parentSharedFolderId);
             }
@@ -367,7 +367,7 @@ public class Metadata {
                 value = DeletedMetadata.Serializer.INSTANCE.deserialize(p, true);
             }
             else {
-                throw new JsonParseException(p, "No subtype found that matches tag: \"" + tag + "\"");
+                throw new JsonParseException("No subtype found that matches tag: \"" + tag + "\"", p.getCurrentLocation());
             }
             if (!collapsed) {
                 expectEndObject(p);

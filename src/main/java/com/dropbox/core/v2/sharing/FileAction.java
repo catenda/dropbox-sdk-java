@@ -107,7 +107,7 @@ public enum FileAction {
                 tag = readTag(p);
             }
             if (tag == null) {
-                throw new JsonParseException(p, "Required field missing: " + TAG_FIELD);
+                throw new JsonParseException("Required field missing: " + TAG_FIELD, p.getCurrentLocation());
             }
             else if ("edit_contents".equals(tag)) {
                 value = FileAction.EDIT_CONTENTS;

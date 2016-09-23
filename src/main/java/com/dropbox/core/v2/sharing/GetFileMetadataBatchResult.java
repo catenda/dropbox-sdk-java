@@ -164,15 +164,15 @@ public class GetFileMetadataBatchResult {
                     }
                 }
                 if (f_file == null) {
-                    throw new JsonParseException(p, "Required field \"file\" missing.");
+                    throw new JsonParseException("Required field \"file\" missing.", p.getCurrentLocation());
                 }
                 if (f_result == null) {
-                    throw new JsonParseException(p, "Required field \"result\" missing.");
+                    throw new JsonParseException("Required field \"result\" missing.", p.getCurrentLocation());
                 }
                 value = new GetFileMetadataBatchResult(f_file, f_result);
             }
             else {
-                throw new JsonParseException(p, "No subtype found that matches tag: \"" + tag + "\"");
+                throw new JsonParseException("No subtype found that matches tag: \"" + tag + "\"", p.getCurrentLocation());
             }
             if (!collapsed) {
                 expectEndObject(p);

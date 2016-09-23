@@ -191,15 +191,15 @@ public class FileSharingInfo extends SharingInfo {
                     }
                 }
                 if (f_readOnly == null) {
-                    throw new JsonParseException(p, "Required field \"read_only\" missing.");
+                    throw new JsonParseException("Required field \"read_only\" missing.", p.getCurrentLocation());
                 }
                 if (f_parentSharedFolderId == null) {
-                    throw new JsonParseException(p, "Required field \"parent_shared_folder_id\" missing.");
+                    throw new JsonParseException("Required field \"parent_shared_folder_id\" missing.", p.getCurrentLocation());
                 }
                 value = new FileSharingInfo(f_readOnly, f_parentSharedFolderId, f_modifiedBy);
             }
             else {
-                throw new JsonParseException(p, "No subtype found that matches tag: \"" + tag + "\"");
+                throw new JsonParseException("No subtype found that matches tag: \"" + tag + "\"", p.getCurrentLocation());
             }
             if (!collapsed) {
                 expectEndObject(p);

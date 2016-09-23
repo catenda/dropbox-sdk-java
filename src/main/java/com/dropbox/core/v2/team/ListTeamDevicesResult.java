@@ -193,15 +193,15 @@ public class ListTeamDevicesResult {
                     }
                 }
                 if (f_devices == null) {
-                    throw new JsonParseException(p, "Required field \"devices\" missing.");
+                    throw new JsonParseException("Required field \"devices\" missing.", p.getCurrentLocation());
                 }
                 if (f_hasMore == null) {
-                    throw new JsonParseException(p, "Required field \"has_more\" missing.");
+                    throw new JsonParseException("Required field \"has_more\" missing.", p.getCurrentLocation());
                 }
                 value = new ListTeamDevicesResult(f_devices, f_hasMore, f_cursor);
             }
             else {
-                throw new JsonParseException(p, "No subtype found that matches tag: \"" + tag + "\"");
+                throw new JsonParseException("No subtype found that matches tag: \"" + tag + "\"", p.getCurrentLocation());
             }
             if (!collapsed) {
                 expectEndObject(p);

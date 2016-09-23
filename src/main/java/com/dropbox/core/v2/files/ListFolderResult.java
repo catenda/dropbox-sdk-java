@@ -183,18 +183,18 @@ public class ListFolderResult {
                     }
                 }
                 if (f_entries == null) {
-                    throw new JsonParseException(p, "Required field \"entries\" missing.");
+                    throw new JsonParseException("Required field \"entries\" missing.", p.getCurrentLocation());
                 }
                 if (f_cursor == null) {
-                    throw new JsonParseException(p, "Required field \"cursor\" missing.");
+                    throw new JsonParseException("Required field \"cursor\" missing.", p.getCurrentLocation());
                 }
                 if (f_hasMore == null) {
-                    throw new JsonParseException(p, "Required field \"has_more\" missing.");
+                    throw new JsonParseException("Required field \"has_more\" missing.", p.getCurrentLocation());
                 }
                 value = new ListFolderResult(f_entries, f_cursor, f_hasMore);
             }
             else {
-                throw new JsonParseException(p, "No subtype found that matches tag: \"" + tag + "\"");
+                throw new JsonParseException("No subtype found that matches tag: \"" + tag + "\"", p.getCurrentLocation());
             }
             if (!collapsed) {
                 expectEndObject(p);

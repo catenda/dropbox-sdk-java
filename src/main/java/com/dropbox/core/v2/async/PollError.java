@@ -77,7 +77,7 @@ public enum PollError {
                 tag = readTag(p);
             }
             if (tag == null) {
-                throw new JsonParseException(p, "Required field missing: " + TAG_FIELD);
+                throw new JsonParseException("Required field missing: " + TAG_FIELD, p.getCurrentLocation());
             }
             else if ("invalid_async_job_id".equals(tag)) {
                 value = PollError.INVALID_ASYNC_JOB_ID;

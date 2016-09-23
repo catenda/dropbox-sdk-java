@@ -486,30 +486,30 @@ public class FileLinkMetadata extends SharedLinkMetadata {
                     }
                 }
                 if (f_url == null) {
-                    throw new JsonParseException(p, "Required field \"url\" missing.");
+                    throw new JsonParseException("Required field \"url\" missing.", p.getCurrentLocation());
                 }
                 if (f_name == null) {
-                    throw new JsonParseException(p, "Required field \"name\" missing.");
+                    throw new JsonParseException("Required field \"name\" missing.", p.getCurrentLocation());
                 }
                 if (f_linkPermissions == null) {
-                    throw new JsonParseException(p, "Required field \"link_permissions\" missing.");
+                    throw new JsonParseException("Required field \"link_permissions\" missing.", p.getCurrentLocation());
                 }
                 if (f_clientModified == null) {
-                    throw new JsonParseException(p, "Required field \"client_modified\" missing.");
+                    throw new JsonParseException("Required field \"client_modified\" missing.", p.getCurrentLocation());
                 }
                 if (f_serverModified == null) {
-                    throw new JsonParseException(p, "Required field \"server_modified\" missing.");
+                    throw new JsonParseException("Required field \"server_modified\" missing.", p.getCurrentLocation());
                 }
                 if (f_rev == null) {
-                    throw new JsonParseException(p, "Required field \"rev\" missing.");
+                    throw new JsonParseException("Required field \"rev\" missing.", p.getCurrentLocation());
                 }
                 if (f_size == null) {
-                    throw new JsonParseException(p, "Required field \"size\" missing.");
+                    throw new JsonParseException("Required field \"size\" missing.", p.getCurrentLocation());
                 }
                 value = new FileLinkMetadata(f_url, f_name, f_linkPermissions, f_clientModified, f_serverModified, f_rev, f_size, f_id, f_expires, f_pathLower, f_teamMemberInfo, f_contentOwnerTeamInfo);
             }
             else {
-                throw new JsonParseException(p, "No subtype found that matches tag: \"" + tag + "\"");
+                throw new JsonParseException("No subtype found that matches tag: \"" + tag + "\"", p.getCurrentLocation());
             }
             if (!collapsed) {
                 expectEndObject(p);

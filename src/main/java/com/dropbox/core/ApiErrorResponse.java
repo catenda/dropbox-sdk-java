@@ -63,7 +63,7 @@ final class ApiErrorResponse<T> {
                 }
             }
             if (error == null) {
-                throw new JsonParseException(p, "Required field \"error\" missing.");
+                throw new JsonParseException("Required field \"error\" missing.", p.getCurrentLocation());
             }
 
             ApiErrorResponse<T> value = new ApiErrorResponse<T>(error, userMessage);

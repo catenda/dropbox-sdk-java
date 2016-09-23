@@ -147,12 +147,12 @@ public class RevokeLinkedAppStatus {
                     }
                 }
                 if (f_success == null) {
-                    throw new JsonParseException(p, "Required field \"success\" missing.");
+                    throw new JsonParseException("Required field \"success\" missing.", p.getCurrentLocation());
                 }
                 value = new RevokeLinkedAppStatus(f_success, f_errorType);
             }
             else {
-                throw new JsonParseException(p, "No subtype found that matches tag: \"" + tag + "\"");
+                throw new JsonParseException("No subtype found that matches tag: \"" + tag + "\"", p.getCurrentLocation());
             }
             if (!collapsed) {
                 expectEndObject(p);

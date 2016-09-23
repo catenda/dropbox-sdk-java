@@ -266,7 +266,7 @@ public final class GroupSelector {
                 tag = readTag(p);
             }
             if (tag == null) {
-                throw new JsonParseException(p, "Required field missing: " + TAG_FIELD);
+                throw new JsonParseException("Required field missing: " + TAG_FIELD, p.getCurrentLocation());
             }
             else if ("group_id".equals(tag)) {
                 String fieldValue = null;
@@ -281,7 +281,7 @@ public final class GroupSelector {
                 value = GroupSelector.groupExternalId(fieldValue);
             }
             else {
-                throw new JsonParseException(p, "Unknown tag: " + tag);
+                throw new JsonParseException("Unknown tag: " + tag, p.getCurrentLocation());
             }
             if (!collapsed) {
                 expectEndObject(p);

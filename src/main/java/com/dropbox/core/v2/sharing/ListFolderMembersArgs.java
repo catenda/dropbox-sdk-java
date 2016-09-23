@@ -249,12 +249,12 @@ class ListFolderMembersArgs extends ListFolderMembersCursorArg {
                     }
                 }
                 if (f_sharedFolderId == null) {
-                    throw new JsonParseException(p, "Required field \"shared_folder_id\" missing.");
+                    throw new JsonParseException("Required field \"shared_folder_id\" missing.", p.getCurrentLocation());
                 }
                 value = new ListFolderMembersArgs(f_sharedFolderId, f_actions, f_limit);
             }
             else {
-                throw new JsonParseException(p, "No subtype found that matches tag: \"" + tag + "\"");
+                throw new JsonParseException("No subtype found that matches tag: \"" + tag + "\"", p.getCurrentLocation());
             }
             if (!collapsed) {
                 expectEndObject(p);

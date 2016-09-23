@@ -169,7 +169,7 @@ public class Pet {
                     }
                 }
                 if (f_name == null) {
-                    throw new JsonParseException(p, "Required field \"name\" missing.");
+                    throw new JsonParseException("Required field \"name\" missing.", p.getCurrentLocation());
                 }
                 value = new Pet(f_name, f_born);
             }
@@ -186,7 +186,7 @@ public class Pet {
                 value = Fish.Serializer.INSTANCE.deserialize(p, true);
             }
             else {
-                throw new JsonParseException(p, "No subtype found that matches tag: \"" + tag + "\"");
+                throw new JsonParseException("No subtype found that matches tag: \"" + tag + "\"", p.getCurrentLocation());
             }
             if (!collapsed) {
                 expectEndObject(p);

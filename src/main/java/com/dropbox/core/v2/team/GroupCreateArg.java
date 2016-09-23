@@ -253,12 +253,12 @@ class GroupCreateArg {
                     }
                 }
                 if (f_groupName == null) {
-                    throw new JsonParseException(p, "Required field \"group_name\" missing.");
+                    throw new JsonParseException("Required field \"group_name\" missing.", p.getCurrentLocation());
                 }
                 value = new GroupCreateArg(f_groupName, f_groupExternalId, f_groupManagementType);
             }
             else {
-                throw new JsonParseException(p, "No subtype found that matches tag: \"" + tag + "\"");
+                throw new JsonParseException("No subtype found that matches tag: \"" + tag + "\"", p.getCurrentLocation());
             }
             if (!collapsed) {
                 expectEndObject(p);

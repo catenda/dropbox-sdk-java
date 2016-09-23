@@ -147,15 +147,15 @@ public class UploadWriteFailed {
                     }
                 }
                 if (f_reason == null) {
-                    throw new JsonParseException(p, "Required field \"reason\" missing.");
+                    throw new JsonParseException("Required field \"reason\" missing.", p.getCurrentLocation());
                 }
                 if (f_uploadSessionId == null) {
-                    throw new JsonParseException(p, "Required field \"upload_session_id\" missing.");
+                    throw new JsonParseException("Required field \"upload_session_id\" missing.", p.getCurrentLocation());
                 }
                 value = new UploadWriteFailed(f_reason, f_uploadSessionId);
             }
             else {
-                throw new JsonParseException(p, "No subtype found that matches tag: \"" + tag + "\"");
+                throw new JsonParseException("No subtype found that matches tag: \"" + tag + "\"", p.getCurrentLocation());
             }
             if (!collapsed) {
                 expectEndObject(p);

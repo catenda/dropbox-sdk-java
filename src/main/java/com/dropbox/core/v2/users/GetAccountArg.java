@@ -128,12 +128,12 @@ class GetAccountArg {
                     }
                 }
                 if (f_accountId == null) {
-                    throw new JsonParseException(p, "Required field \"account_id\" missing.");
+                    throw new JsonParseException("Required field \"account_id\" missing.", p.getCurrentLocation());
                 }
                 value = new GetAccountArg(f_accountId);
             }
             else {
-                throw new JsonParseException(p, "No subtype found that matches tag: \"" + tag + "\"");
+                throw new JsonParseException("No subtype found that matches tag: \"" + tag + "\"", p.getCurrentLocation());
             }
             if (!collapsed) {
                 expectEndObject(p);

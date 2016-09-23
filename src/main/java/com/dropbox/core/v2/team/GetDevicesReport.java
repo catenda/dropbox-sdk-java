@@ -192,21 +192,21 @@ public class GetDevicesReport extends BaseDfbReport {
                     }
                 }
                 if (f_startDate == null) {
-                    throw new JsonParseException(p, "Required field \"start_date\" missing.");
+                    throw new JsonParseException("Required field \"start_date\" missing.", p.getCurrentLocation());
                 }
                 if (f_active1Day == null) {
-                    throw new JsonParseException(p, "Required field \"active_1_day\" missing.");
+                    throw new JsonParseException("Required field \"active_1_day\" missing.", p.getCurrentLocation());
                 }
                 if (f_active7Day == null) {
-                    throw new JsonParseException(p, "Required field \"active_7_day\" missing.");
+                    throw new JsonParseException("Required field \"active_7_day\" missing.", p.getCurrentLocation());
                 }
                 if (f_active28Day == null) {
-                    throw new JsonParseException(p, "Required field \"active_28_day\" missing.");
+                    throw new JsonParseException("Required field \"active_28_day\" missing.", p.getCurrentLocation());
                 }
                 value = new GetDevicesReport(f_startDate, f_active1Day, f_active7Day, f_active28Day);
             }
             else {
-                throw new JsonParseException(p, "No subtype found that matches tag: \"" + tag + "\"");
+                throw new JsonParseException("No subtype found that matches tag: \"" + tag + "\"", p.getCurrentLocation());
             }
             if (!collapsed) {
                 expectEndObject(p);

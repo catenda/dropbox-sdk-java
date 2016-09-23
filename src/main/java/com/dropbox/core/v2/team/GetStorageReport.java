@@ -286,27 +286,27 @@ public class GetStorageReport extends BaseDfbReport {
                     }
                 }
                 if (f_startDate == null) {
-                    throw new JsonParseException(p, "Required field \"start_date\" missing.");
+                    throw new JsonParseException("Required field \"start_date\" missing.", p.getCurrentLocation());
                 }
                 if (f_totalUsage == null) {
-                    throw new JsonParseException(p, "Required field \"total_usage\" missing.");
+                    throw new JsonParseException("Required field \"total_usage\" missing.", p.getCurrentLocation());
                 }
                 if (f_sharedUsage == null) {
-                    throw new JsonParseException(p, "Required field \"shared_usage\" missing.");
+                    throw new JsonParseException("Required field \"shared_usage\" missing.", p.getCurrentLocation());
                 }
                 if (f_unsharedUsage == null) {
-                    throw new JsonParseException(p, "Required field \"unshared_usage\" missing.");
+                    throw new JsonParseException("Required field \"unshared_usage\" missing.", p.getCurrentLocation());
                 }
                 if (f_sharedFolders == null) {
-                    throw new JsonParseException(p, "Required field \"shared_folders\" missing.");
+                    throw new JsonParseException("Required field \"shared_folders\" missing.", p.getCurrentLocation());
                 }
                 if (f_memberStorageMap == null) {
-                    throw new JsonParseException(p, "Required field \"member_storage_map\" missing.");
+                    throw new JsonParseException("Required field \"member_storage_map\" missing.", p.getCurrentLocation());
                 }
                 value = new GetStorageReport(f_startDate, f_totalUsage, f_sharedUsage, f_unsharedUsage, f_sharedFolders, f_memberStorageMap);
             }
             else {
-                throw new JsonParseException(p, "No subtype found that matches tag: \"" + tag + "\"");
+                throw new JsonParseException("No subtype found that matches tag: \"" + tag + "\"", p.getCurrentLocation());
             }
             if (!collapsed) {
                 expectEndObject(p);

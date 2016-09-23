@@ -323,12 +323,12 @@ public class DeviceSession {
                     }
                 }
                 if (f_sessionId == null) {
-                    throw new JsonParseException(p, "Required field \"session_id\" missing.");
+                    throw new JsonParseException("Required field \"session_id\" missing.", p.getCurrentLocation());
                 }
                 value = new DeviceSession(f_sessionId, f_ipAddress, f_country, f_created, f_updated);
             }
             else {
-                throw new JsonParseException(p, "No subtype found that matches tag: \"" + tag + "\"");
+                throw new JsonParseException("No subtype found that matches tag: \"" + tag + "\"", p.getCurrentLocation());
             }
             if (!collapsed) {
                 expectEndObject(p);

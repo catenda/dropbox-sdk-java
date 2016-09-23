@@ -425,18 +425,18 @@ public class MobileClientSession extends DeviceSession {
                     }
                 }
                 if (f_sessionId == null) {
-                    throw new JsonParseException(p, "Required field \"session_id\" missing.");
+                    throw new JsonParseException("Required field \"session_id\" missing.", p.getCurrentLocation());
                 }
                 if (f_deviceName == null) {
-                    throw new JsonParseException(p, "Required field \"device_name\" missing.");
+                    throw new JsonParseException("Required field \"device_name\" missing.", p.getCurrentLocation());
                 }
                 if (f_clientType == null) {
-                    throw new JsonParseException(p, "Required field \"client_type\" missing.");
+                    throw new JsonParseException("Required field \"client_type\" missing.", p.getCurrentLocation());
                 }
                 value = new MobileClientSession(f_sessionId, f_deviceName, f_clientType, f_ipAddress, f_country, f_created, f_updated, f_clientVersion, f_osVersion, f_lastCarrier);
             }
             else {
-                throw new JsonParseException(p, "No subtype found that matches tag: \"" + tag + "\"");
+                throw new JsonParseException("No subtype found that matches tag: \"" + tag + "\"", p.getCurrentLocation());
             }
             if (!collapsed) {
                 expectEndObject(p);

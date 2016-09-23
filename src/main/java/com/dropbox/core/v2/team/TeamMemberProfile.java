@@ -330,30 +330,30 @@ public class TeamMemberProfile extends MemberProfile {
                     }
                 }
                 if (f_teamMemberId == null) {
-                    throw new JsonParseException(p, "Required field \"team_member_id\" missing.");
+                    throw new JsonParseException("Required field \"team_member_id\" missing.", p.getCurrentLocation());
                 }
                 if (f_email == null) {
-                    throw new JsonParseException(p, "Required field \"email\" missing.");
+                    throw new JsonParseException("Required field \"email\" missing.", p.getCurrentLocation());
                 }
                 if (f_emailVerified == null) {
-                    throw new JsonParseException(p, "Required field \"email_verified\" missing.");
+                    throw new JsonParseException("Required field \"email_verified\" missing.", p.getCurrentLocation());
                 }
                 if (f_status == null) {
-                    throw new JsonParseException(p, "Required field \"status\" missing.");
+                    throw new JsonParseException("Required field \"status\" missing.", p.getCurrentLocation());
                 }
                 if (f_name == null) {
-                    throw new JsonParseException(p, "Required field \"name\" missing.");
+                    throw new JsonParseException("Required field \"name\" missing.", p.getCurrentLocation());
                 }
                 if (f_membershipType == null) {
-                    throw new JsonParseException(p, "Required field \"membership_type\" missing.");
+                    throw new JsonParseException("Required field \"membership_type\" missing.", p.getCurrentLocation());
                 }
                 if (f_groups == null) {
-                    throw new JsonParseException(p, "Required field \"groups\" missing.");
+                    throw new JsonParseException("Required field \"groups\" missing.", p.getCurrentLocation());
                 }
                 value = new TeamMemberProfile(f_teamMemberId, f_email, f_emailVerified, f_status, f_name, f_membershipType, f_groups, f_externalId, f_accountId);
             }
             else {
-                throw new JsonParseException(p, "No subtype found that matches tag: \"" + tag + "\"");
+                throw new JsonParseException("No subtype found that matches tag: \"" + tag + "\"", p.getCurrentLocation());
             }
             if (!collapsed) {
                 expectEndObject(p);

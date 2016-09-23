@@ -317,27 +317,27 @@ public class GroupInfo extends GroupSummary {
                     }
                 }
                 if (f_groupName == null) {
-                    throw new JsonParseException(p, "Required field \"group_name\" missing.");
+                    throw new JsonParseException("Required field \"group_name\" missing.", p.getCurrentLocation());
                 }
                 if (f_groupId == null) {
-                    throw new JsonParseException(p, "Required field \"group_id\" missing.");
+                    throw new JsonParseException("Required field \"group_id\" missing.", p.getCurrentLocation());
                 }
                 if (f_groupManagementType == null) {
-                    throw new JsonParseException(p, "Required field \"group_management_type\" missing.");
+                    throw new JsonParseException("Required field \"group_management_type\" missing.", p.getCurrentLocation());
                 }
                 if (f_groupType == null) {
-                    throw new JsonParseException(p, "Required field \"group_type\" missing.");
+                    throw new JsonParseException("Required field \"group_type\" missing.", p.getCurrentLocation());
                 }
                 if (f_isOwner == null) {
-                    throw new JsonParseException(p, "Required field \"is_owner\" missing.");
+                    throw new JsonParseException("Required field \"is_owner\" missing.", p.getCurrentLocation());
                 }
                 if (f_sameTeam == null) {
-                    throw new JsonParseException(p, "Required field \"same_team\" missing.");
+                    throw new JsonParseException("Required field \"same_team\" missing.", p.getCurrentLocation());
                 }
                 value = new GroupInfo(f_groupName, f_groupId, f_groupManagementType, f_groupType, f_isOwner, f_sameTeam, f_groupExternalId, f_memberCount);
             }
             else {
-                throw new JsonParseException(p, "No subtype found that matches tag: \"" + tag + "\"");
+                throw new JsonParseException("No subtype found that matches tag: \"" + tag + "\"", p.getCurrentLocation());
             }
             if (!collapsed) {
                 expectEndObject(p);

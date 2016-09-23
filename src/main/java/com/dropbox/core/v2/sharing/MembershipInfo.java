@@ -324,12 +324,12 @@ public class MembershipInfo {
                     }
                 }
                 if (f_accessType == null) {
-                    throw new JsonParseException(p, "Required field \"access_type\" missing.");
+                    throw new JsonParseException("Required field \"access_type\" missing.", p.getCurrentLocation());
                 }
                 value = new MembershipInfo(f_accessType, f_permissions, f_initials, f_isInherited);
             }
             else {
-                throw new JsonParseException(p, "No subtype found that matches tag: \"" + tag + "\"");
+                throw new JsonParseException("No subtype found that matches tag: \"" + tag + "\"", p.getCurrentLocation());
             }
             if (!collapsed) {
                 expectEndObject(p);

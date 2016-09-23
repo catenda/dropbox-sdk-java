@@ -146,15 +146,15 @@ public class SpaceUsage {
                     }
                 }
                 if (f_used == null) {
-                    throw new JsonParseException(p, "Required field \"used\" missing.");
+                    throw new JsonParseException("Required field \"used\" missing.", p.getCurrentLocation());
                 }
                 if (f_allocation == null) {
-                    throw new JsonParseException(p, "Required field \"allocation\" missing.");
+                    throw new JsonParseException("Required field \"allocation\" missing.", p.getCurrentLocation());
                 }
                 value = new SpaceUsage(f_used, f_allocation);
             }
             else {
-                throw new JsonParseException(p, "No subtype found that matches tag: \"" + tag + "\"");
+                throw new JsonParseException("No subtype found that matches tag: \"" + tag + "\"", p.getCurrentLocation());
             }
             if (!collapsed) {
                 expectEndObject(p);

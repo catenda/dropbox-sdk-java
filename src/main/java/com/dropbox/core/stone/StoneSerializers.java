@@ -194,7 +194,7 @@ public final class StoneSerializers {
             try {
                 return Util.parseTimestamp(text);
             } catch (ParseException ex) {
-                throw new JsonParseException(p, "Malformed timestamp: '" + text + "'", ex);
+                throw new JsonParseException("Malformed timestamp: '" + text + "'", p.getCurrentLocation(), ex);
             }
         }
     }
@@ -250,7 +250,7 @@ public final class StoneSerializers {
 
         @Override
         public void serialize(List<T> value, JsonGenerator g) throws IOException, JsonGenerationException {
-            g.writeStartArray(value.size());
+            g.writeStartArray(); //Hack, original : g.writeStartArray(value.size());
             for (T elem : value) {
                 underlying.serialize(elem, g);
             }

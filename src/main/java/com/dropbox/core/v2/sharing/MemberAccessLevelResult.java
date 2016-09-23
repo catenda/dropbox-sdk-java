@@ -288,7 +288,7 @@ public class MemberAccessLevelResult {
                 value = new MemberAccessLevelResult(f_accessLevel, f_warning, f_accessDetails);
             }
             else {
-                throw new JsonParseException(p, "No subtype found that matches tag: \"" + tag + "\"");
+                throw new JsonParseException("No subtype found that matches tag: \"" + tag + "\"", p.getCurrentLocation());
             }
             if (!collapsed) {
                 expectEndObject(p);

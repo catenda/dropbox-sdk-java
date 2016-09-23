@@ -155,12 +155,12 @@ public class ListFolderLongpollResult {
                     }
                 }
                 if (f_changes == null) {
-                    throw new JsonParseException(p, "Required field \"changes\" missing.");
+                    throw new JsonParseException("Required field \"changes\" missing.", p.getCurrentLocation());
                 }
                 value = new ListFolderLongpollResult(f_changes, f_backoff);
             }
             else {
-                throw new JsonParseException(p, "No subtype found that matches tag: \"" + tag + "\"");
+                throw new JsonParseException("No subtype found that matches tag: \"" + tag + "\"", p.getCurrentLocation());
             }
             if (!collapsed) {
                 expectEndObject(p);

@@ -153,15 +153,15 @@ class TransferFolderArg {
                     }
                 }
                 if (f_sharedFolderId == null) {
-                    throw new JsonParseException(p, "Required field \"shared_folder_id\" missing.");
+                    throw new JsonParseException("Required field \"shared_folder_id\" missing.", p.getCurrentLocation());
                 }
                 if (f_toDropboxId == null) {
-                    throw new JsonParseException(p, "Required field \"to_dropbox_id\" missing.");
+                    throw new JsonParseException("Required field \"to_dropbox_id\" missing.", p.getCurrentLocation());
                 }
                 value = new TransferFolderArg(f_sharedFolderId, f_toDropboxId);
             }
             else {
-                throw new JsonParseException(p, "No subtype found that matches tag: \"" + tag + "\"");
+                throw new JsonParseException("No subtype found that matches tag: \"" + tag + "\"", p.getCurrentLocation());
             }
             if (!collapsed) {
                 expectEndObject(p);

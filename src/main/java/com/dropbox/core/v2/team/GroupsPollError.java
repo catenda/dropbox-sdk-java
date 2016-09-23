@@ -79,7 +79,7 @@ public enum GroupsPollError {
                 tag = readTag(p);
             }
             if (tag == null) {
-                throw new JsonParseException(p, "Required field missing: " + TAG_FIELD);
+                throw new JsonParseException("Required field missing: " + TAG_FIELD, p.getCurrentLocation());
             }
             else if ("invalid_async_job_id".equals(tag)) {
                 value = GroupsPollError.INVALID_ASYNC_JOB_ID;
@@ -94,7 +94,7 @@ public enum GroupsPollError {
                 value = GroupsPollError.ACCESS_DENIED;
             }
             else {
-                throw new JsonParseException(p, "Unknown tag: " + tag);
+                throw new JsonParseException("Unknown tag: " + tag, p.getCurrentLocation());
             }
             if (!collapsed) {
                 expectEndObject(p);

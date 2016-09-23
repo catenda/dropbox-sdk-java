@@ -68,7 +68,7 @@ public enum SharingUserError {
                 tag = readTag(p);
             }
             if (tag == null) {
-                throw new JsonParseException(p, "Required field missing: " + TAG_FIELD);
+                throw new JsonParseException("Required field missing: " + TAG_FIELD, p.getCurrentLocation());
             }
             else if ("email_unverified".equals(tag)) {
                 value = SharingUserError.EMAIL_UNVERIFIED;

@@ -127,12 +127,12 @@ class RevokeDeviceSessionBatchArg {
                     }
                 }
                 if (f_revokeDevices == null) {
-                    throw new JsonParseException(p, "Required field \"revoke_devices\" missing.");
+                    throw new JsonParseException("Required field \"revoke_devices\" missing.", p.getCurrentLocation());
                 }
                 value = new RevokeDeviceSessionBatchArg(f_revokeDevices);
             }
             else {
-                throw new JsonParseException(p, "No subtype found that matches tag: \"" + tag + "\"");
+                throw new JsonParseException("No subtype found that matches tag: \"" + tag + "\"", p.getCurrentLocation());
             }
             if (!collapsed) {
                 expectEndObject(p);

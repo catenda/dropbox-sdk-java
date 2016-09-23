@@ -122,12 +122,12 @@ class MembersListContinueArg {
                     }
                 }
                 if (f_cursor == null) {
-                    throw new JsonParseException(p, "Required field \"cursor\" missing.");
+                    throw new JsonParseException("Required field \"cursor\" missing.", p.getCurrentLocation());
                 }
                 value = new MembersListContinueArg(f_cursor);
             }
             else {
-                throw new JsonParseException(p, "No subtype found that matches tag: \"" + tag + "\"");
+                throw new JsonParseException("No subtype found that matches tag: \"" + tag + "\"", p.getCurrentLocation());
             }
             if (!collapsed) {
                 expectEndObject(p);

@@ -266,7 +266,7 @@ public class ListFolderMembersCursorArg {
                 value = new ListFolderMembersCursorArg(f_actions, f_limit);
             }
             else {
-                throw new JsonParseException(p, "No subtype found that matches tag: \"" + tag + "\"");
+                throw new JsonParseException("No subtype found that matches tag: \"" + tag + "\"", p.getCurrentLocation());
             }
             if (!collapsed) {
                 expectEndObject(p);

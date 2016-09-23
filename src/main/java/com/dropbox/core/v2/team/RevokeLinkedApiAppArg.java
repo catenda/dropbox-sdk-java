@@ -183,15 +183,15 @@ public class RevokeLinkedApiAppArg {
                     }
                 }
                 if (f_appId == null) {
-                    throw new JsonParseException(p, "Required field \"app_id\" missing.");
+                    throw new JsonParseException("Required field \"app_id\" missing.", p.getCurrentLocation());
                 }
                 if (f_teamMemberId == null) {
-                    throw new JsonParseException(p, "Required field \"team_member_id\" missing.");
+                    throw new JsonParseException("Required field \"team_member_id\" missing.", p.getCurrentLocation());
                 }
                 value = new RevokeLinkedApiAppArg(f_appId, f_teamMemberId, f_keepAppFolder);
             }
             else {
-                throw new JsonParseException(p, "No subtype found that matches tag: \"" + tag + "\"");
+                throw new JsonParseException("No subtype found that matches tag: \"" + tag + "\"", p.getCurrentLocation());
             }
             if (!collapsed) {
                 expectEndObject(p);

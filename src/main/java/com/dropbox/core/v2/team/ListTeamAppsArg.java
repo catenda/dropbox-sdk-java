@@ -140,7 +140,7 @@ class ListTeamAppsArg {
                 value = new ListTeamAppsArg(f_cursor);
             }
             else {
-                throw new JsonParseException(p, "No subtype found that matches tag: \"" + tag + "\"");
+                throw new JsonParseException("No subtype found that matches tag: \"" + tag + "\"", p.getCurrentLocation());
             }
             if (!collapsed) {
                 expectEndObject(p);

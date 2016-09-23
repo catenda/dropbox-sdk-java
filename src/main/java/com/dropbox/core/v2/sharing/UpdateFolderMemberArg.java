@@ -180,18 +180,18 @@ class UpdateFolderMemberArg {
                     }
                 }
                 if (f_sharedFolderId == null) {
-                    throw new JsonParseException(p, "Required field \"shared_folder_id\" missing.");
+                    throw new JsonParseException("Required field \"shared_folder_id\" missing.", p.getCurrentLocation());
                 }
                 if (f_member == null) {
-                    throw new JsonParseException(p, "Required field \"member\" missing.");
+                    throw new JsonParseException("Required field \"member\" missing.", p.getCurrentLocation());
                 }
                 if (f_accessLevel == null) {
-                    throw new JsonParseException(p, "Required field \"access_level\" missing.");
+                    throw new JsonParseException("Required field \"access_level\" missing.", p.getCurrentLocation());
                 }
                 value = new UpdateFolderMemberArg(f_sharedFolderId, f_member, f_accessLevel);
             }
             else {
-                throw new JsonParseException(p, "No subtype found that matches tag: \"" + tag + "\"");
+                throw new JsonParseException("No subtype found that matches tag: \"" + tag + "\"", p.getCurrentLocation());
             }
             if (!collapsed) {
                 expectEndObject(p);

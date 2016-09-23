@@ -288,7 +288,7 @@ public final class GetFileMetadataError {
                 tag = readTag(p);
             }
             if (tag == null) {
-                throw new JsonParseException(p, "Required field missing: " + TAG_FIELD);
+                throw new JsonParseException("Required field missing: " + TAG_FIELD, p.getCurrentLocation());
             }
             else if ("user_error".equals(tag)) {
                 SharingUserError fieldValue = null;

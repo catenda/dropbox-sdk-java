@@ -175,18 +175,18 @@ public class GetCopyReferenceResult {
                     }
                 }
                 if (f_metadata == null) {
-                    throw new JsonParseException(p, "Required field \"metadata\" missing.");
+                    throw new JsonParseException("Required field \"metadata\" missing.", p.getCurrentLocation());
                 }
                 if (f_copyReference == null) {
-                    throw new JsonParseException(p, "Required field \"copy_reference\" missing.");
+                    throw new JsonParseException("Required field \"copy_reference\" missing.", p.getCurrentLocation());
                 }
                 if (f_expires == null) {
-                    throw new JsonParseException(p, "Required field \"expires\" missing.");
+                    throw new JsonParseException("Required field \"expires\" missing.", p.getCurrentLocation());
                 }
                 value = new GetCopyReferenceResult(f_metadata, f_copyReference, f_expires);
             }
             else {
-                throw new JsonParseException(p, "No subtype found that matches tag: \"" + tag + "\"");
+                throw new JsonParseException("No subtype found that matches tag: \"" + tag + "\"", p.getCurrentLocation());
             }
             if (!collapsed) {
                 expectEndObject(p);

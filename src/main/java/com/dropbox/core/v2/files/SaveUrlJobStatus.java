@@ -280,7 +280,7 @@ public final class SaveUrlJobStatus {
                 tag = readTag(p);
             }
             if (tag == null) {
-                throw new JsonParseException(p, "Required field missing: " + TAG_FIELD);
+                throw new JsonParseException("Required field missing: " + TAG_FIELD, p.getCurrentLocation());
             }
             else if ("in_progress".equals(tag)) {
                 value = SaveUrlJobStatus.IN_PROGRESS;
@@ -298,7 +298,7 @@ public final class SaveUrlJobStatus {
                 value = SaveUrlJobStatus.failed(fieldValue);
             }
             else {
-                throw new JsonParseException(p, "Unknown tag: " + tag);
+                throw new JsonParseException("Unknown tag: " + tag, p.getCurrentLocation());
             }
             if (!collapsed) {
                 expectEndObject(p);

@@ -131,12 +131,12 @@ public class PollArg {
                     }
                 }
                 if (f_asyncJobId == null) {
-                    throw new JsonParseException(p, "Required field \"async_job_id\" missing.");
+                    throw new JsonParseException("Required field \"async_job_id\" missing.", p.getCurrentLocation());
                 }
                 value = new PollArg(f_asyncJobId);
             }
             else {
-                throw new JsonParseException(p, "No subtype found that matches tag: \"" + tag + "\"");
+                throw new JsonParseException("No subtype found that matches tag: \"" + tag + "\"", p.getCurrentLocation());
             }
             if (!collapsed) {
                 expectEndObject(p);

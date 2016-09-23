@@ -342,7 +342,7 @@ public final class NestingUnion {
                 tag = readTag(p);
             }
             if (tag == null) {
-                throw new JsonParseException(p, "Required field missing: " + TAG_FIELD);
+                throw new JsonParseException("Required field missing: " + TAG_FIELD, p.getCurrentLocation());
             }
             else if ("simple".equals(tag)) {
                 ChildUnion fieldValue = null;

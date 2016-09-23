@@ -150,15 +150,15 @@ public class ListRevisionsResult {
                     }
                 }
                 if (f_isDeleted == null) {
-                    throw new JsonParseException(p, "Required field \"is_deleted\" missing.");
+                    throw new JsonParseException("Required field \"is_deleted\" missing.", p.getCurrentLocation());
                 }
                 if (f_entries == null) {
-                    throw new JsonParseException(p, "Required field \"entries\" missing.");
+                    throw new JsonParseException("Required field \"entries\" missing.", p.getCurrentLocation());
                 }
                 value = new ListRevisionsResult(f_isDeleted, f_entries);
             }
             else {
-                throw new JsonParseException(p, "No subtype found that matches tag: \"" + tag + "\"");
+                throw new JsonParseException("No subtype found that matches tag: \"" + tag + "\"", p.getCurrentLocation());
             }
             if (!collapsed) {
                 expectEndObject(p);

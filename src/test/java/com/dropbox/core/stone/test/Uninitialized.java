@@ -143,15 +143,15 @@ public class Uninitialized {
                     }
                 }
                 if (f_reason == null) {
-                    throw new JsonParseException(p, "Required field \"reason\" missing.");
+                    throw new JsonParseException("Required field \"reason\" missing.", p.getCurrentLocation());
                 }
                 if (f_sessionId == null) {
-                    throw new JsonParseException(p, "Required field \"session_id\" missing.");
+                    throw new JsonParseException("Required field \"session_id\" missing.", p.getCurrentLocation());
                 }
                 value = new Uninitialized(f_reason, f_sessionId);
             }
             else {
-                throw new JsonParseException(p, "No subtype found that matches tag: \"" + tag + "\"");
+                throw new JsonParseException("No subtype found that matches tag: \"" + tag + "\"", p.getCurrentLocation());
             }
             if (!collapsed) {
                 expectEndObject(p);

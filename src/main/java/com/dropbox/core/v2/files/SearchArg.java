@@ -387,15 +387,15 @@ class SearchArg {
                     }
                 }
                 if (f_path == null) {
-                    throw new JsonParseException(p, "Required field \"path\" missing.");
+                    throw new JsonParseException("Required field \"path\" missing.", p.getCurrentLocation());
                 }
                 if (f_query == null) {
-                    throw new JsonParseException(p, "Required field \"query\" missing.");
+                    throw new JsonParseException("Required field \"query\" missing.", p.getCurrentLocation());
                 }
                 value = new SearchArg(f_path, f_query, f_start, f_maxResults, f_mode);
             }
             else {
-                throw new JsonParseException(p, "No subtype found that matches tag: \"" + tag + "\"");
+                throw new JsonParseException("No subtype found that matches tag: \"" + tag + "\"", p.getCurrentLocation());
             }
             if (!collapsed) {
                 expectEndObject(p);

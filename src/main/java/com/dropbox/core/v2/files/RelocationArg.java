@@ -155,15 +155,15 @@ public class RelocationArg {
                     }
                 }
                 if (f_fromPath == null) {
-                    throw new JsonParseException(p, "Required field \"from_path\" missing.");
+                    throw new JsonParseException("Required field \"from_path\" missing.", p.getCurrentLocation());
                 }
                 if (f_toPath == null) {
-                    throw new JsonParseException(p, "Required field \"to_path\" missing.");
+                    throw new JsonParseException("Required field \"to_path\" missing.", p.getCurrentLocation());
                 }
                 value = new RelocationArg(f_fromPath, f_toPath);
             }
             else {
-                throw new JsonParseException(p, "No subtype found that matches tag: \"" + tag + "\"");
+                throw new JsonParseException("No subtype found that matches tag: \"" + tag + "\"", p.getCurrentLocation());
             }
             if (!collapsed) {
                 expectEndObject(p);

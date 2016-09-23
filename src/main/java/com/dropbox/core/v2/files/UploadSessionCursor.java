@@ -149,15 +149,15 @@ public class UploadSessionCursor {
                     }
                 }
                 if (f_sessionId == null) {
-                    throw new JsonParseException(p, "Required field \"session_id\" missing.");
+                    throw new JsonParseException("Required field \"session_id\" missing.", p.getCurrentLocation());
                 }
                 if (f_offset == null) {
-                    throw new JsonParseException(p, "Required field \"offset\" missing.");
+                    throw new JsonParseException("Required field \"offset\" missing.", p.getCurrentLocation());
                 }
                 value = new UploadSessionCursor(f_sessionId, f_offset);
             }
             else {
-                throw new JsonParseException(p, "No subtype found that matches tag: \"" + tag + "\"");
+                throw new JsonParseException("No subtype found that matches tag: \"" + tag + "\"", p.getCurrentLocation());
             }
             if (!collapsed) {
                 expectEndObject(p);

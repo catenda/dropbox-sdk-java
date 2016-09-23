@@ -311,15 +311,15 @@ public class FolderPolicy {
                     }
                 }
                 if (f_aclUpdatePolicy == null) {
-                    throw new JsonParseException(p, "Required field \"acl_update_policy\" missing.");
+                    throw new JsonParseException("Required field \"acl_update_policy\" missing.", p.getCurrentLocation());
                 }
                 if (f_sharedLinkPolicy == null) {
-                    throw new JsonParseException(p, "Required field \"shared_link_policy\" missing.");
+                    throw new JsonParseException("Required field \"shared_link_policy\" missing.", p.getCurrentLocation());
                 }
                 value = new FolderPolicy(f_aclUpdatePolicy, f_sharedLinkPolicy, f_memberPolicy, f_resolvedMemberPolicy);
             }
             else {
-                throw new JsonParseException(p, "No subtype found that matches tag: \"" + tag + "\"");
+                throw new JsonParseException("No subtype found that matches tag: \"" + tag + "\"", p.getCurrentLocation());
             }
             if (!collapsed) {
                 expectEndObject(p);

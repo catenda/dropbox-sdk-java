@@ -146,18 +146,18 @@ public class FullTeam extends Team {
                     }
                 }
                 if (f_id == null) {
-                    throw new JsonParseException(p, "Required field \"id\" missing.");
+                    throw new JsonParseException("Required field \"id\" missing.", p.getCurrentLocation());
                 }
                 if (f_name == null) {
-                    throw new JsonParseException(p, "Required field \"name\" missing.");
+                    throw new JsonParseException("Required field \"name\" missing.", p.getCurrentLocation());
                 }
                 if (f_sharingPolicies == null) {
-                    throw new JsonParseException(p, "Required field \"sharing_policies\" missing.");
+                    throw new JsonParseException("Required field \"sharing_policies\" missing.", p.getCurrentLocation());
                 }
                 value = new FullTeam(f_id, f_name, f_sharingPolicies);
             }
             else {
-                throw new JsonParseException(p, "No subtype found that matches tag: \"" + tag + "\"");
+                throw new JsonParseException("No subtype found that matches tag: \"" + tag + "\"", p.getCurrentLocation());
             }
             if (!collapsed) {
                 expectEndObject(p);
