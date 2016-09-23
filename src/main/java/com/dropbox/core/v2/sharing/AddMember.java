@@ -171,12 +171,12 @@ public class AddMember {
                     }
                 }
                 if (f_member == null) {
-                    throw new JsonParseException(p, "Required field \"member\" missing.");
+                    throw new JsonParseException("Required field \"member\" missing.", p.getCurrentLocation());
                 }
                 value = new AddMember(f_member, f_accessLevel);
             }
             else {
-                throw new JsonParseException(p, "No subtype found that matches tag: \"" + tag + "\"");
+                throw new JsonParseException("No subtype found that matches tag: \"" + tag + "\"", p.getCurrentLocation());
             }
             if (!collapsed) {
                 expectEndObject(p);

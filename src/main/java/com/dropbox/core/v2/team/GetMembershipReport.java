@@ -266,27 +266,27 @@ public class GetMembershipReport extends BaseDfbReport {
                     }
                 }
                 if (f_startDate == null) {
-                    throw new JsonParseException(p, "Required field \"start_date\" missing.");
+                    throw new JsonParseException("Required field \"start_date\" missing.", p.getCurrentLocation());
                 }
                 if (f_teamSize == null) {
-                    throw new JsonParseException(p, "Required field \"team_size\" missing.");
+                    throw new JsonParseException("Required field \"team_size\" missing.", p.getCurrentLocation());
                 }
                 if (f_pendingInvites == null) {
-                    throw new JsonParseException(p, "Required field \"pending_invites\" missing.");
+                    throw new JsonParseException("Required field \"pending_invites\" missing.", p.getCurrentLocation());
                 }
                 if (f_membersJoined == null) {
-                    throw new JsonParseException(p, "Required field \"members_joined\" missing.");
+                    throw new JsonParseException("Required field \"members_joined\" missing.", p.getCurrentLocation());
                 }
                 if (f_suspendedMembers == null) {
-                    throw new JsonParseException(p, "Required field \"suspended_members\" missing.");
+                    throw new JsonParseException("Required field \"suspended_members\" missing.", p.getCurrentLocation());
                 }
                 if (f_licenses == null) {
-                    throw new JsonParseException(p, "Required field \"licenses\" missing.");
+                    throw new JsonParseException("Required field \"licenses\" missing.", p.getCurrentLocation());
                 }
                 value = new GetMembershipReport(f_startDate, f_teamSize, f_pendingInvites, f_membersJoined, f_suspendedMembers, f_licenses);
             }
             else {
-                throw new JsonParseException(p, "No subtype found that matches tag: \"" + tag + "\"");
+                throw new JsonParseException("No subtype found that matches tag: \"" + tag + "\"", p.getCurrentLocation());
             }
             if (!collapsed) {
                 expectEndObject(p);

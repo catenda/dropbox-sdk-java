@@ -166,15 +166,15 @@ public class PropertyGroup {
                     }
                 }
                 if (f_templateId == null) {
-                    throw new JsonParseException(p, "Required field \"template_id\" missing.");
+                    throw new JsonParseException("Required field \"template_id\" missing.", p.getCurrentLocation());
                 }
                 if (f_fields == null) {
-                    throw new JsonParseException(p, "Required field \"fields\" missing.");
+                    throw new JsonParseException("Required field \"fields\" missing.", p.getCurrentLocation());
                 }
                 value = new PropertyGroup(f_templateId, f_fields);
             }
             else {
-                throw new JsonParseException(p, "No subtype found that matches tag: \"" + tag + "\"");
+                throw new JsonParseException("No subtype found that matches tag: \"" + tag + "\"", p.getCurrentLocation());
             }
             if (!collapsed) {
                 expectEndObject(p);

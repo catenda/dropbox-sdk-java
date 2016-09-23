@@ -121,12 +121,12 @@ class RevokeSharedLinkArg {
                     }
                 }
                 if (f_url == null) {
-                    throw new JsonParseException(p, "Required field \"url\" missing.");
+                    throw new JsonParseException("Required field \"url\" missing.", p.getCurrentLocation());
                 }
                 value = new RevokeSharedLinkArg(f_url);
             }
             else {
-                throw new JsonParseException(p, "No subtype found that matches tag: \"" + tag + "\"");
+                throw new JsonParseException("No subtype found that matches tag: \"" + tag + "\"", p.getCurrentLocation());
             }
             if (!collapsed) {
                 expectEndObject(p);

@@ -116,12 +116,12 @@ public class IndividualSpaceAllocation {
                     }
                 }
                 if (f_allocated == null) {
-                    throw new JsonParseException(p, "Required field \"allocated\" missing.");
+                    throw new JsonParseException("Required field \"allocated\" missing.", p.getCurrentLocation());
                 }
                 value = new IndividualSpaceAllocation(f_allocated);
             }
             else {
-                throw new JsonParseException(p, "No subtype found that matches tag: \"" + tag + "\"");
+                throw new JsonParseException("No subtype found that matches tag: \"" + tag + "\"", p.getCurrentLocation());
             }
             if (!collapsed) {
                 expectEndObject(p);

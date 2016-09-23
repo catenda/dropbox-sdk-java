@@ -144,15 +144,15 @@ public class ListFileMembersCountResult {
                     }
                 }
                 if (f_members == null) {
-                    throw new JsonParseException(p, "Required field \"members\" missing.");
+                    throw new JsonParseException("Required field \"members\" missing.", p.getCurrentLocation());
                 }
                 if (f_memberCount == null) {
-                    throw new JsonParseException(p, "Required field \"member_count\" missing.");
+                    throw new JsonParseException("Required field \"member_count\" missing.", p.getCurrentLocation());
                 }
                 value = new ListFileMembersCountResult(f_members, f_memberCount);
             }
             else {
-                throw new JsonParseException(p, "No subtype found that matches tag: \"" + tag + "\"");
+                throw new JsonParseException("No subtype found that matches tag: \"" + tag + "\"", p.getCurrentLocation());
             }
             if (!collapsed) {
                 expectEndObject(p);

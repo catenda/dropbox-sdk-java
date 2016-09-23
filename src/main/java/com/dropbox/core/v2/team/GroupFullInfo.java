@@ -320,21 +320,21 @@ public class GroupFullInfo extends GroupSummary {
                     }
                 }
                 if (f_groupName == null) {
-                    throw new JsonParseException(p, "Required field \"group_name\" missing.");
+                    throw new JsonParseException("Required field \"group_name\" missing.", p.getCurrentLocation());
                 }
                 if (f_groupId == null) {
-                    throw new JsonParseException(p, "Required field \"group_id\" missing.");
+                    throw new JsonParseException("Required field \"group_id\" missing.", p.getCurrentLocation());
                 }
                 if (f_groupManagementType == null) {
-                    throw new JsonParseException(p, "Required field \"group_management_type\" missing.");
+                    throw new JsonParseException("Required field \"group_management_type\" missing.", p.getCurrentLocation());
                 }
                 if (f_created == null) {
-                    throw new JsonParseException(p, "Required field \"created\" missing.");
+                    throw new JsonParseException("Required field \"created\" missing.", p.getCurrentLocation());
                 }
                 value = new GroupFullInfo(f_groupName, f_groupId, f_groupManagementType, f_created, f_groupExternalId, f_memberCount, f_members);
             }
             else {
-                throw new JsonParseException(p, "No subtype found that matches tag: \"" + tag + "\"");
+                throw new JsonParseException("No subtype found that matches tag: \"" + tag + "\"", p.getCurrentLocation());
             }
             if (!collapsed) {
                 expectEndObject(p);

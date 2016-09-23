@@ -204,15 +204,15 @@ public class UserInfo {
                     }
                 }
                 if (f_accountId == null) {
-                    throw new JsonParseException(p, "Required field \"account_id\" missing.");
+                    throw new JsonParseException("Required field \"account_id\" missing.", p.getCurrentLocation());
                 }
                 if (f_sameTeam == null) {
-                    throw new JsonParseException(p, "Required field \"same_team\" missing.");
+                    throw new JsonParseException("Required field \"same_team\" missing.", p.getCurrentLocation());
                 }
                 value = new UserInfo(f_accountId, f_sameTeam, f_teamMemberId);
             }
             else {
-                throw new JsonParseException(p, "No subtype found that matches tag: \"" + tag + "\"");
+                throw new JsonParseException("No subtype found that matches tag: \"" + tag + "\"", p.getCurrentLocation());
             }
             if (!collapsed) {
                 expectEndObject(p);

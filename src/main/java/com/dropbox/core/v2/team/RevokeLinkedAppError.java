@@ -76,7 +76,7 @@ public enum RevokeLinkedAppError {
                 tag = readTag(p);
             }
             if (tag == null) {
-                throw new JsonParseException(p, "Required field missing: " + TAG_FIELD);
+                throw new JsonParseException("Required field missing: " + TAG_FIELD, p.getCurrentLocation());
             }
             else if ("app_not_found".equals(tag)) {
                 value = RevokeLinkedAppError.APP_NOT_FOUND;

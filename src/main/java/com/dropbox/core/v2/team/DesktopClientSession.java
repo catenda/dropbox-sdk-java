@@ -412,27 +412,27 @@ public class DesktopClientSession extends DeviceSession {
                     }
                 }
                 if (f_sessionId == null) {
-                    throw new JsonParseException(p, "Required field \"session_id\" missing.");
+                    throw new JsonParseException("Required field \"session_id\" missing.", p.getCurrentLocation());
                 }
                 if (f_hostName == null) {
-                    throw new JsonParseException(p, "Required field \"host_name\" missing.");
+                    throw new JsonParseException("Required field \"host_name\" missing.", p.getCurrentLocation());
                 }
                 if (f_clientType == null) {
-                    throw new JsonParseException(p, "Required field \"client_type\" missing.");
+                    throw new JsonParseException("Required field \"client_type\" missing.", p.getCurrentLocation());
                 }
                 if (f_clientVersion == null) {
-                    throw new JsonParseException(p, "Required field \"client_version\" missing.");
+                    throw new JsonParseException("Required field \"client_version\" missing.", p.getCurrentLocation());
                 }
                 if (f_platform == null) {
-                    throw new JsonParseException(p, "Required field \"platform\" missing.");
+                    throw new JsonParseException("Required field \"platform\" missing.", p.getCurrentLocation());
                 }
                 if (f_isDeleteOnUnlinkSupported == null) {
-                    throw new JsonParseException(p, "Required field \"is_delete_on_unlink_supported\" missing.");
+                    throw new JsonParseException("Required field \"is_delete_on_unlink_supported\" missing.", p.getCurrentLocation());
                 }
                 value = new DesktopClientSession(f_sessionId, f_hostName, f_clientType, f_clientVersion, f_platform, f_isDeleteOnUnlinkSupported, f_ipAddress, f_country, f_created, f_updated);
             }
             else {
-                throw new JsonParseException(p, "No subtype found that matches tag: \"" + tag + "\"");
+                throw new JsonParseException("No subtype found that matches tag: \"" + tag + "\"", p.getCurrentLocation());
             }
             if (!collapsed) {
                 expectEndObject(p);

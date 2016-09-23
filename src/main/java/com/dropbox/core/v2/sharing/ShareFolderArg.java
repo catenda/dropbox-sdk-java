@@ -386,12 +386,12 @@ class ShareFolderArg {
                     }
                 }
                 if (f_path == null) {
-                    throw new JsonParseException(p, "Required field \"path\" missing.");
+                    throw new JsonParseException("Required field \"path\" missing.", p.getCurrentLocation());
                 }
                 value = new ShareFolderArg(f_path, f_memberPolicy, f_aclUpdatePolicy, f_sharedLinkPolicy, f_forceAsync);
             }
             else {
-                throw new JsonParseException(p, "No subtype found that matches tag: \"" + tag + "\"");
+                throw new JsonParseException("No subtype found that matches tag: \"" + tag + "\"", p.getCurrentLocation());
             }
             if (!collapsed) {
                 expectEndObject(p);

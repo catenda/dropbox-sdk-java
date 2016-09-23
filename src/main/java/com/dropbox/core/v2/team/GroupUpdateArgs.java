@@ -334,12 +334,12 @@ class GroupUpdateArgs extends IncludeMembersArg {
                     }
                 }
                 if (f_group == null) {
-                    throw new JsonParseException(p, "Required field \"group\" missing.");
+                    throw new JsonParseException("Required field \"group\" missing.", p.getCurrentLocation());
                 }
                 value = new GroupUpdateArgs(f_group, f_returnMembers, f_newGroupName, f_newGroupExternalId, f_newGroupManagementType);
             }
             else {
-                throw new JsonParseException(p, "No subtype found that matches tag: \"" + tag + "\"");
+                throw new JsonParseException("No subtype found that matches tag: \"" + tag + "\"", p.getCurrentLocation());
             }
             if (!collapsed) {
                 expectEndObject(p);

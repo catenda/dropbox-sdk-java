@@ -88,11 +88,11 @@ public final class LocalizedText {
             }
 
             if (text == null) {
-                throw new JsonParseException(p, "Required field \"text\" missing.");
+                throw new JsonParseException("Required field \"text\" missing.", p.getCurrentLocation());
             }
 
             if (locale == null) {
-                throw new JsonParseException(p, "Required field \"locale\" missing.");
+                throw new JsonParseException("Required field \"locale\" missing.", p.getCurrentLocation());
             }
 
             LocalizedText value = new LocalizedText(text, locale);

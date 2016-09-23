@@ -64,7 +64,7 @@ public enum ListMemberDevicesError {
                 tag = readTag(p);
             }
             if (tag == null) {
-                throw new JsonParseException(p, "Required field missing: " + TAG_FIELD);
+                throw new JsonParseException("Required field missing: " + TAG_FIELD, p.getCurrentLocation());
             }
             else if ("member_not_found".equals(tag)) {
                 value = ListMemberDevicesError.MEMBER_NOT_FOUND;

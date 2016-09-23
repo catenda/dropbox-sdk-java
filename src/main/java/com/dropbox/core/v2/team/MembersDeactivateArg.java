@@ -168,12 +168,12 @@ public class MembersDeactivateArg {
                     }
                 }
                 if (f_user == null) {
-                    throw new JsonParseException(p, "Required field \"user\" missing.");
+                    throw new JsonParseException("Required field \"user\" missing.", p.getCurrentLocation());
                 }
                 value = new MembersDeactivateArg(f_user, f_wipeData);
             }
             else {
-                throw new JsonParseException(p, "No subtype found that matches tag: \"" + tag + "\"");
+                throw new JsonParseException("No subtype found that matches tag: \"" + tag + "\"", p.getCurrentLocation());
             }
             if (!collapsed) {
                 expectEndObject(p);

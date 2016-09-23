@@ -128,12 +128,12 @@ public class GetSharedLinksResult {
                     }
                 }
                 if (f_links == null) {
-                    throw new JsonParseException(p, "Required field \"links\" missing.");
+                    throw new JsonParseException("Required field \"links\" missing.", p.getCurrentLocation());
                 }
                 value = new GetSharedLinksResult(f_links);
             }
             else {
-                throw new JsonParseException(p, "No subtype found that matches tag: \"" + tag + "\"");
+                throw new JsonParseException("No subtype found that matches tag: \"" + tag + "\"", p.getCurrentLocation());
             }
             if (!collapsed) {
                 expectEndObject(p);

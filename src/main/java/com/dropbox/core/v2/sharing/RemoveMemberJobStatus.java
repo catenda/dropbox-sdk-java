@@ -282,7 +282,7 @@ public final class RemoveMemberJobStatus {
                 tag = readTag(p);
             }
             if (tag == null) {
-                throw new JsonParseException(p, "Required field missing: " + TAG_FIELD);
+                throw new JsonParseException("Required field missing: " + TAG_FIELD, p.getCurrentLocation());
             }
             else if ("in_progress".equals(tag)) {
                 value = RemoveMemberJobStatus.IN_PROGRESS;
@@ -299,7 +299,7 @@ public final class RemoveMemberJobStatus {
                 value = RemoveMemberJobStatus.failed(fieldValue);
             }
             else {
-                throw new JsonParseException(p, "Unknown tag: " + tag);
+                throw new JsonParseException("Unknown tag: " + tag, p.getCurrentLocation());
             }
             if (!collapsed) {
                 expectEndObject(p);

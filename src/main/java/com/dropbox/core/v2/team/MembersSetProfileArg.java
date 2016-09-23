@@ -431,12 +431,12 @@ class MembersSetProfileArg {
                     }
                 }
                 if (f_user == null) {
-                    throw new JsonParseException(p, "Required field \"user\" missing.");
+                    throw new JsonParseException("Required field \"user\" missing.", p.getCurrentLocation());
                 }
                 value = new MembersSetProfileArg(f_user, f_newEmail, f_newExternalId, f_newGivenName, f_newSurname);
             }
             else {
-                throw new JsonParseException(p, "No subtype found that matches tag: \"" + tag + "\"");
+                throw new JsonParseException("No subtype found that matches tag: \"" + tag + "\"", p.getCurrentLocation());
             }
             if (!collapsed) {
                 expectEndObject(p);

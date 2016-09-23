@@ -268,7 +268,7 @@ public final class GroupsGetInfoItem {
                 tag = readTag(p);
             }
             if (tag == null) {
-                throw new JsonParseException(p, "Required field missing: " + TAG_FIELD);
+                throw new JsonParseException("Required field missing: " + TAG_FIELD, p.getCurrentLocation());
             }
             else if ("id_not_found".equals(tag)) {
                 String fieldValue = null;
@@ -282,7 +282,7 @@ public final class GroupsGetInfoItem {
                 value = GroupsGetInfoItem.groupInfo(fieldValue);
             }
             else {
-                throw new JsonParseException(p, "Unknown tag: " + tag);
+                throw new JsonParseException("Unknown tag: " + tag, p.getCurrentLocation());
             }
             if (!collapsed) {
                 expectEndObject(p);

@@ -146,15 +146,15 @@ public class GetTemporaryLinkResult {
                     }
                 }
                 if (f_metadata == null) {
-                    throw new JsonParseException(p, "Required field \"metadata\" missing.");
+                    throw new JsonParseException("Required field \"metadata\" missing.", p.getCurrentLocation());
                 }
                 if (f_link == null) {
-                    throw new JsonParseException(p, "Required field \"link\" missing.");
+                    throw new JsonParseException("Required field \"link\" missing.", p.getCurrentLocation());
                 }
                 value = new GetTemporaryLinkResult(f_metadata, f_link);
             }
             else {
-                throw new JsonParseException(p, "No subtype found that matches tag: \"" + tag + "\"");
+                throw new JsonParseException("No subtype found that matches tag: \"" + tag + "\"", p.getCurrentLocation());
             }
             if (!collapsed) {
                 expectEndObject(p);

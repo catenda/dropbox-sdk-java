@@ -203,21 +203,21 @@ public class Name {
                     }
                 }
                 if (f_givenName == null) {
-                    throw new JsonParseException(p, "Required field \"given_name\" missing.");
+                    throw new JsonParseException("Required field \"given_name\" missing.", p.getCurrentLocation());
                 }
                 if (f_surname == null) {
-                    throw new JsonParseException(p, "Required field \"surname\" missing.");
+                    throw new JsonParseException("Required field \"surname\" missing.", p.getCurrentLocation());
                 }
                 if (f_familiarName == null) {
-                    throw new JsonParseException(p, "Required field \"familiar_name\" missing.");
+                    throw new JsonParseException("Required field \"familiar_name\" missing.", p.getCurrentLocation());
                 }
                 if (f_displayName == null) {
-                    throw new JsonParseException(p, "Required field \"display_name\" missing.");
+                    throw new JsonParseException("Required field \"display_name\" missing.", p.getCurrentLocation());
                 }
                 value = new Name(f_givenName, f_surname, f_familiarName, f_displayName);
             }
             else {
-                throw new JsonParseException(p, "No subtype found that matches tag: \"" + tag + "\"");
+                throw new JsonParseException("No subtype found that matches tag: \"" + tag + "\"", p.getCurrentLocation());
             }
             if (!collapsed) {
                 expectEndObject(p);

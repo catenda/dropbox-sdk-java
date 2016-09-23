@@ -316,30 +316,30 @@ public class DevicesActive {
                     }
                 }
                 if (f_windows == null) {
-                    throw new JsonParseException(p, "Required field \"windows\" missing.");
+                    throw new JsonParseException("Required field \"windows\" missing.", p.getCurrentLocation());
                 }
                 if (f_macos == null) {
-                    throw new JsonParseException(p, "Required field \"macos\" missing.");
+                    throw new JsonParseException("Required field \"macos\" missing.", p.getCurrentLocation());
                 }
                 if (f_linux == null) {
-                    throw new JsonParseException(p, "Required field \"linux\" missing.");
+                    throw new JsonParseException("Required field \"linux\" missing.", p.getCurrentLocation());
                 }
                 if (f_ios == null) {
-                    throw new JsonParseException(p, "Required field \"ios\" missing.");
+                    throw new JsonParseException("Required field \"ios\" missing.", p.getCurrentLocation());
                 }
                 if (f_android == null) {
-                    throw new JsonParseException(p, "Required field \"android\" missing.");
+                    throw new JsonParseException("Required field \"android\" missing.", p.getCurrentLocation());
                 }
                 if (f_other == null) {
-                    throw new JsonParseException(p, "Required field \"other\" missing.");
+                    throw new JsonParseException("Required field \"other\" missing.", p.getCurrentLocation());
                 }
                 if (f_total == null) {
-                    throw new JsonParseException(p, "Required field \"total\" missing.");
+                    throw new JsonParseException("Required field \"total\" missing.", p.getCurrentLocation());
                 }
                 value = new DevicesActive(f_windows, f_macos, f_linux, f_ios, f_android, f_other, f_total);
             }
             else {
-                throw new JsonParseException(p, "No subtype found that matches tag: \"" + tag + "\"");
+                throw new JsonParseException("No subtype found that matches tag: \"" + tag + "\"", p.getCurrentLocation());
             }
             if (!collapsed) {
                 expectEndObject(p);

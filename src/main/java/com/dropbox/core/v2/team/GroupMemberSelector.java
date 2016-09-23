@@ -151,15 +151,15 @@ public class GroupMemberSelector {
                     }
                 }
                 if (f_group == null) {
-                    throw new JsonParseException(p, "Required field \"group\" missing.");
+                    throw new JsonParseException("Required field \"group\" missing.", p.getCurrentLocation());
                 }
                 if (f_user == null) {
-                    throw new JsonParseException(p, "Required field \"user\" missing.");
+                    throw new JsonParseException("Required field \"user\" missing.", p.getCurrentLocation());
                 }
                 value = new GroupMemberSelector(f_group, f_user);
             }
             else {
-                throw new JsonParseException(p, "No subtype found that matches tag: \"" + tag + "\"");
+                throw new JsonParseException("No subtype found that matches tag: \"" + tag + "\"", p.getCurrentLocation());
             }
             if (!collapsed) {
                 expectEndObject(p);

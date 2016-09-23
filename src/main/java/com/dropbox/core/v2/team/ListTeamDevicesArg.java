@@ -319,7 +319,7 @@ class ListTeamDevicesArg {
                 value = new ListTeamDevicesArg(f_cursor, f_includeWebSessions, f_includeDesktopClients, f_includeMobileClients);
             }
             else {
-                throw new JsonParseException(p, "No subtype found that matches tag: \"" + tag + "\"");
+                throw new JsonParseException("No subtype found that matches tag: \"" + tag + "\"", p.getCurrentLocation());
             }
             if (!collapsed) {
                 expectEndObject(p);

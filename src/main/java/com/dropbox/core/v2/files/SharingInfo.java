@@ -120,12 +120,12 @@ public class SharingInfo {
                     }
                 }
                 if (f_readOnly == null) {
-                    throw new JsonParseException(p, "Required field \"read_only\" missing.");
+                    throw new JsonParseException("Required field \"read_only\" missing.", p.getCurrentLocation());
                 }
                 value = new SharingInfo(f_readOnly);
             }
             else {
-                throw new JsonParseException(p, "No subtype found that matches tag: \"" + tag + "\"");
+                throw new JsonParseException("No subtype found that matches tag: \"" + tag + "\"", p.getCurrentLocation());
             }
             if (!collapsed) {
                 expectEndObject(p);

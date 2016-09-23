@@ -150,15 +150,15 @@ public class GroupMemberInfo {
                     }
                 }
                 if (f_profile == null) {
-                    throw new JsonParseException(p, "Required field \"profile\" missing.");
+                    throw new JsonParseException("Required field \"profile\" missing.", p.getCurrentLocation());
                 }
                 if (f_accessType == null) {
-                    throw new JsonParseException(p, "Required field \"access_type\" missing.");
+                    throw new JsonParseException("Required field \"access_type\" missing.", p.getCurrentLocation());
                 }
                 value = new GroupMemberInfo(f_profile, f_accessType);
             }
             else {
-                throw new JsonParseException(p, "No subtype found that matches tag: \"" + tag + "\"");
+                throw new JsonParseException("No subtype found that matches tag: \"" + tag + "\"", p.getCurrentLocation());
             }
             if (!collapsed) {
                 expectEndObject(p);

@@ -180,18 +180,18 @@ public class GroupsListResult {
                     }
                 }
                 if (f_groups == null) {
-                    throw new JsonParseException(p, "Required field \"groups\" missing.");
+                    throw new JsonParseException("Required field \"groups\" missing.", p.getCurrentLocation());
                 }
                 if (f_cursor == null) {
-                    throw new JsonParseException(p, "Required field \"cursor\" missing.");
+                    throw new JsonParseException("Required field \"cursor\" missing.", p.getCurrentLocation());
                 }
                 if (f_hasMore == null) {
-                    throw new JsonParseException(p, "Required field \"has_more\" missing.");
+                    throw new JsonParseException("Required field \"has_more\" missing.", p.getCurrentLocation());
                 }
                 value = new GroupsListResult(f_groups, f_cursor, f_hasMore);
             }
             else {
-                throw new JsonParseException(p, "No subtype found that matches tag: \"" + tag + "\"");
+                throw new JsonParseException("No subtype found that matches tag: \"" + tag + "\"", p.getCurrentLocation());
             }
             if (!collapsed) {
                 expectEndObject(p);

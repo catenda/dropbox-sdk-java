@@ -183,18 +183,18 @@ class GroupMembersSetAccessTypeArg extends GroupMemberSelector {
                     }
                 }
                 if (f_group == null) {
-                    throw new JsonParseException(p, "Required field \"group\" missing.");
+                    throw new JsonParseException("Required field \"group\" missing.", p.getCurrentLocation());
                 }
                 if (f_user == null) {
-                    throw new JsonParseException(p, "Required field \"user\" missing.");
+                    throw new JsonParseException("Required field \"user\" missing.", p.getCurrentLocation());
                 }
                 if (f_accessType == null) {
-                    throw new JsonParseException(p, "Required field \"access_type\" missing.");
+                    throw new JsonParseException("Required field \"access_type\" missing.", p.getCurrentLocation());
                 }
                 value = new GroupMembersSetAccessTypeArg(f_group, f_user, f_accessType, f_returnMembers);
             }
             else {
-                throw new JsonParseException(p, "No subtype found that matches tag: \"" + tag + "\"");
+                throw new JsonParseException("No subtype found that matches tag: \"" + tag + "\"", p.getCurrentLocation());
             }
             if (!collapsed) {
                 expectEndObject(p);

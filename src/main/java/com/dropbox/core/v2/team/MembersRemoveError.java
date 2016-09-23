@@ -168,7 +168,7 @@ public enum MembersRemoveError {
                 tag = readTag(p);
             }
             if (tag == null) {
-                throw new JsonParseException(p, "Required field missing: " + TAG_FIELD);
+                throw new JsonParseException("Required field missing: " + TAG_FIELD, p.getCurrentLocation());
             }
             else if ("user_not_found".equals(tag)) {
                 value = MembersRemoveError.USER_NOT_FOUND;
@@ -216,7 +216,7 @@ public enum MembersRemoveError {
                 value = MembersRemoveError.EMAIL_ADDRESS_TOO_LONG_TO_BE_DISABLED;
             }
             else {
-                throw new JsonParseException(p, "Unknown tag: " + tag);
+                throw new JsonParseException("Unknown tag: " + tag, p.getCurrentLocation());
             }
             if (!collapsed) {
                 expectEndObject(p);

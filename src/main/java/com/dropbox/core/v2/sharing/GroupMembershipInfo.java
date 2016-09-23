@@ -276,15 +276,15 @@ public class GroupMembershipInfo extends MembershipInfo {
                     }
                 }
                 if (f_accessType == null) {
-                    throw new JsonParseException(p, "Required field \"access_type\" missing.");
+                    throw new JsonParseException("Required field \"access_type\" missing.", p.getCurrentLocation());
                 }
                 if (f_group == null) {
-                    throw new JsonParseException(p, "Required field \"group\" missing.");
+                    throw new JsonParseException("Required field \"group\" missing.", p.getCurrentLocation());
                 }
                 value = new GroupMembershipInfo(f_accessType, f_group, f_permissions, f_initials, f_isInherited);
             }
             else {
-                throw new JsonParseException(p, "No subtype found that matches tag: \"" + tag + "\"");
+                throw new JsonParseException("No subtype found that matches tag: \"" + tag + "\"", p.getCurrentLocation());
             }
             if (!collapsed) {
                 expectEndObject(p);

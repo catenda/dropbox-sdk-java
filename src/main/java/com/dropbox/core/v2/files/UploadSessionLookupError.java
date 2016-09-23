@@ -321,7 +321,7 @@ public final class UploadSessionLookupError {
                 tag = readTag(p);
             }
             if (tag == null) {
-                throw new JsonParseException(p, "Required field missing: " + TAG_FIELD);
+                throw new JsonParseException("Required field missing: " + TAG_FIELD, p.getCurrentLocation());
             }
             else if ("not_found".equals(tag)) {
                 value = UploadSessionLookupError.NOT_FOUND;

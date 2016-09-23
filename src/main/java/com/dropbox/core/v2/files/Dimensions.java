@@ -140,15 +140,15 @@ public class Dimensions {
                     }
                 }
                 if (f_height == null) {
-                    throw new JsonParseException(p, "Required field \"height\" missing.");
+                    throw new JsonParseException("Required field \"height\" missing.", p.getCurrentLocation());
                 }
                 if (f_width == null) {
-                    throw new JsonParseException(p, "Required field \"width\" missing.");
+                    throw new JsonParseException("Required field \"width\" missing.", p.getCurrentLocation());
                 }
                 value = new Dimensions(f_height, f_width);
             }
             else {
-                throw new JsonParseException(p, "No subtype found that matches tag: \"" + tag + "\"");
+                throw new JsonParseException("No subtype found that matches tag: \"" + tag + "\"", p.getCurrentLocation());
             }
             if (!collapsed) {
                 expectEndObject(p);

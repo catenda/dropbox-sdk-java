@@ -157,15 +157,15 @@ public class RevokeDesktopClientArg extends DeviceSessionArg {
                     }
                 }
                 if (f_sessionId == null) {
-                    throw new JsonParseException(p, "Required field \"session_id\" missing.");
+                    throw new JsonParseException("Required field \"session_id\" missing.", p.getCurrentLocation());
                 }
                 if (f_teamMemberId == null) {
-                    throw new JsonParseException(p, "Required field \"team_member_id\" missing.");
+                    throw new JsonParseException("Required field \"team_member_id\" missing.", p.getCurrentLocation());
                 }
                 value = new RevokeDesktopClientArg(f_sessionId, f_teamMemberId, f_deleteOnUnlink);
             }
             else {
-                throw new JsonParseException(p, "No subtype found that matches tag: \"" + tag + "\"");
+                throw new JsonParseException("No subtype found that matches tag: \"" + tag + "\"", p.getCurrentLocation());
             }
             if (!collapsed) {
                 expectEndObject(p);

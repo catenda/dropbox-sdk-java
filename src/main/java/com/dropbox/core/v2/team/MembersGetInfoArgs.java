@@ -128,12 +128,12 @@ class MembersGetInfoArgs {
                     }
                 }
                 if (f_members == null) {
-                    throw new JsonParseException(p, "Required field \"members\" missing.");
+                    throw new JsonParseException("Required field \"members\" missing.", p.getCurrentLocation());
                 }
                 value = new MembersGetInfoArgs(f_members);
             }
             else {
-                throw new JsonParseException(p, "No subtype found that matches tag: \"" + tag + "\"");
+                throw new JsonParseException("No subtype found that matches tag: \"" + tag + "\"", p.getCurrentLocation());
             }
             if (!collapsed) {
                 expectEndObject(p);

@@ -115,12 +115,12 @@ public class RemovedStatus {
                     }
                 }
                 if (f_isRecoverable == null) {
-                    throw new JsonParseException(p, "Required field \"is_recoverable\" missing.");
+                    throw new JsonParseException("Required field \"is_recoverable\" missing.", p.getCurrentLocation());
                 }
                 value = new RemovedStatus(f_isRecoverable);
             }
             else {
-                throw new JsonParseException(p, "No subtype found that matches tag: \"" + tag + "\"");
+                throw new JsonParseException("No subtype found that matches tag: \"" + tag + "\"", p.getCurrentLocation());
             }
             if (!collapsed) {
                 expectEndObject(p);

@@ -126,12 +126,12 @@ public class BaseDfbReport {
                     }
                 }
                 if (f_startDate == null) {
-                    throw new JsonParseException(p, "Required field \"start_date\" missing.");
+                    throw new JsonParseException("Required field \"start_date\" missing.", p.getCurrentLocation());
                 }
                 value = new BaseDfbReport(f_startDate);
             }
             else {
-                throw new JsonParseException(p, "No subtype found that matches tag: \"" + tag + "\"");
+                throw new JsonParseException("No subtype found that matches tag: \"" + tag + "\"", p.getCurrentLocation());
             }
             if (!collapsed) {
                 expectEndObject(p);

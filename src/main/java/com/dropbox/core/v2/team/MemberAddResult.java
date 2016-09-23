@@ -824,7 +824,7 @@ public final class MemberAddResult {
                 tag = readTag(p);
             }
             if (tag == null) {
-                throw new JsonParseException(p, "Required field missing: " + TAG_FIELD);
+                throw new JsonParseException("Required field missing: " + TAG_FIELD, p.getCurrentLocation());
             }
             else if ("success".equals(tag)) {
                 TeamMemberInfo fieldValue = null;
@@ -880,7 +880,7 @@ public final class MemberAddResult {
                 value = MemberAddResult.userCreationFailed(fieldValue);
             }
             else {
-                throw new JsonParseException(p, "Unknown tag: " + tag);
+                throw new JsonParseException("Unknown tag: " + tag, p.getCurrentLocation());
             }
             if (!collapsed) {
                 expectEndObject(p);

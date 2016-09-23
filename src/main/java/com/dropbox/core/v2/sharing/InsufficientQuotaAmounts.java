@@ -158,18 +158,18 @@ public class InsufficientQuotaAmounts {
                     }
                 }
                 if (f_spaceNeeded == null) {
-                    throw new JsonParseException(p, "Required field \"space_needed\" missing.");
+                    throw new JsonParseException("Required field \"space_needed\" missing.", p.getCurrentLocation());
                 }
                 if (f_spaceShortage == null) {
-                    throw new JsonParseException(p, "Required field \"space_shortage\" missing.");
+                    throw new JsonParseException("Required field \"space_shortage\" missing.", p.getCurrentLocation());
                 }
                 if (f_spaceLeft == null) {
-                    throw new JsonParseException(p, "Required field \"space_left\" missing.");
+                    throw new JsonParseException("Required field \"space_left\" missing.", p.getCurrentLocation());
                 }
                 value = new InsufficientQuotaAmounts(f_spaceNeeded, f_spaceShortage, f_spaceLeft);
             }
             else {
-                throw new JsonParseException(p, "No subtype found that matches tag: \"" + tag + "\"");
+                throw new JsonParseException("No subtype found that matches tag: \"" + tag + "\"", p.getCurrentLocation());
             }
             if (!collapsed) {
                 expectEndObject(p);

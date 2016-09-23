@@ -293,7 +293,7 @@ public final class ModifySharedLinkSettingsError {
                 tag = readTag(p);
             }
             if (tag == null) {
-                throw new JsonParseException(p, "Required field missing: " + TAG_FIELD);
+                throw new JsonParseException("Required field missing: " + TAG_FIELD, p.getCurrentLocation());
             }
             else if ("shared_link_not_found".equals(tag)) {
                 value = ModifySharedLinkSettingsError.SHARED_LINK_NOT_FOUND;
@@ -314,7 +314,7 @@ public final class ModifySharedLinkSettingsError {
                 value = ModifySharedLinkSettingsError.EMAIL_NOT_VERIFIED;
             }
             else {
-                throw new JsonParseException(p, "Unknown tag: " + tag);
+                throw new JsonParseException("Unknown tag: " + tag, p.getCurrentLocation());
             }
             if (!collapsed) {
                 expectEndObject(p);

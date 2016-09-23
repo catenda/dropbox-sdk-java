@@ -180,15 +180,15 @@ class GroupMembersRemoveArg extends IncludeMembersArg {
                     }
                 }
                 if (f_group == null) {
-                    throw new JsonParseException(p, "Required field \"group\" missing.");
+                    throw new JsonParseException("Required field \"group\" missing.", p.getCurrentLocation());
                 }
                 if (f_users == null) {
-                    throw new JsonParseException(p, "Required field \"users\" missing.");
+                    throw new JsonParseException("Required field \"users\" missing.", p.getCurrentLocation());
                 }
                 value = new GroupMembersRemoveArg(f_group, f_users, f_returnMembers);
             }
             else {
-                throw new JsonParseException(p, "No subtype found that matches tag: \"" + tag + "\"");
+                throw new JsonParseException("No subtype found that matches tag: \"" + tag + "\"", p.getCurrentLocation());
             }
             if (!collapsed) {
                 expectEndObject(p);

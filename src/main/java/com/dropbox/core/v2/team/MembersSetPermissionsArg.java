@@ -152,15 +152,15 @@ class MembersSetPermissionsArg {
                     }
                 }
                 if (f_user == null) {
-                    throw new JsonParseException(p, "Required field \"user\" missing.");
+                    throw new JsonParseException("Required field \"user\" missing.", p.getCurrentLocation());
                 }
                 if (f_newRole == null) {
-                    throw new JsonParseException(p, "Required field \"new_role\" missing.");
+                    throw new JsonParseException("Required field \"new_role\" missing.", p.getCurrentLocation());
                 }
                 value = new MembersSetPermissionsArg(f_user, f_newRole);
             }
             else {
-                throw new JsonParseException(p, "No subtype found that matches tag: \"" + tag + "\"");
+                throw new JsonParseException("No subtype found that matches tag: \"" + tag + "\"", p.getCurrentLocation());
             }
             if (!collapsed) {
                 expectEndObject(p);

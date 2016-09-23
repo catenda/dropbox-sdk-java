@@ -210,24 +210,24 @@ public class TeamGetInfoResult {
                     }
                 }
                 if (f_name == null) {
-                    throw new JsonParseException(p, "Required field \"name\" missing.");
+                    throw new JsonParseException("Required field \"name\" missing.", p.getCurrentLocation());
                 }
                 if (f_teamId == null) {
-                    throw new JsonParseException(p, "Required field \"team_id\" missing.");
+                    throw new JsonParseException("Required field \"team_id\" missing.", p.getCurrentLocation());
                 }
                 if (f_numLicensedUsers == null) {
-                    throw new JsonParseException(p, "Required field \"num_licensed_users\" missing.");
+                    throw new JsonParseException("Required field \"num_licensed_users\" missing.", p.getCurrentLocation());
                 }
                 if (f_numProvisionedUsers == null) {
-                    throw new JsonParseException(p, "Required field \"num_provisioned_users\" missing.");
+                    throw new JsonParseException("Required field \"num_provisioned_users\" missing.", p.getCurrentLocation());
                 }
                 if (f_policies == null) {
-                    throw new JsonParseException(p, "Required field \"policies\" missing.");
+                    throw new JsonParseException("Required field \"policies\" missing.", p.getCurrentLocation());
                 }
                 value = new TeamGetInfoResult(f_name, f_teamId, f_numLicensedUsers, f_numProvisionedUsers, f_policies);
             }
             else {
-                throw new JsonParseException(p, "No subtype found that matches tag: \"" + tag + "\"");
+                throw new JsonParseException("No subtype found that matches tag: \"" + tag + "\"", p.getCurrentLocation());
             }
             if (!collapsed) {
                 expectEndObject(p);

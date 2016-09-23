@@ -305,7 +305,7 @@ public class ListMemberDevicesResult {
                 value = new ListMemberDevicesResult(f_activeWebSessions, f_desktopClientSessions, f_mobileClientSessions);
             }
             else {
-                throw new JsonParseException(p, "No subtype found that matches tag: \"" + tag + "\"");
+                throw new JsonParseException("No subtype found that matches tag: \"" + tag + "\"", p.getCurrentLocation());
             }
             if (!collapsed) {
                 expectEndObject(p);

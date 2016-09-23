@@ -340,18 +340,18 @@ public class SharedFolderMetadataBase {
                     }
                 }
                 if (f_accessType == null) {
-                    throw new JsonParseException(p, "Required field \"access_type\" missing.");
+                    throw new JsonParseException("Required field \"access_type\" missing.", p.getCurrentLocation());
                 }
                 if (f_isTeamFolder == null) {
-                    throw new JsonParseException(p, "Required field \"is_team_folder\" missing.");
+                    throw new JsonParseException("Required field \"is_team_folder\" missing.", p.getCurrentLocation());
                 }
                 if (f_policy == null) {
-                    throw new JsonParseException(p, "Required field \"policy\" missing.");
+                    throw new JsonParseException("Required field \"policy\" missing.", p.getCurrentLocation());
                 }
                 value = new SharedFolderMetadataBase(f_accessType, f_isTeamFolder, f_policy, f_ownerTeam, f_parentSharedFolderId);
             }
             else {
-                throw new JsonParseException(p, "No subtype found that matches tag: \"" + tag + "\"");
+                throw new JsonParseException("No subtype found that matches tag: \"" + tag + "\"", p.getCurrentLocation());
             }
             if (!collapsed) {
                 expectEndObject(p);

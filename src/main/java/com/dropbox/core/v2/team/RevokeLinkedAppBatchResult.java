@@ -127,12 +127,12 @@ public class RevokeLinkedAppBatchResult {
                     }
                 }
                 if (f_revokeLinkedAppStatus == null) {
-                    throw new JsonParseException(p, "Required field \"revoke_linked_app_status\" missing.");
+                    throw new JsonParseException("Required field \"revoke_linked_app_status\" missing.", p.getCurrentLocation());
                 }
                 value = new RevokeLinkedAppBatchResult(f_revokeLinkedAppStatus);
             }
             else {
-                throw new JsonParseException(p, "No subtype found that matches tag: \"" + tag + "\"");
+                throw new JsonParseException("No subtype found that matches tag: \"" + tag + "\"", p.getCurrentLocation());
             }
             if (!collapsed) {
                 expectEndObject(p);

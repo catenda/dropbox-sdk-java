@@ -175,18 +175,18 @@ public class TeamSharingPolicies {
                     }
                 }
                 if (f_sharedFolderMemberPolicy == null) {
-                    throw new JsonParseException(p, "Required field \"shared_folder_member_policy\" missing.");
+                    throw new JsonParseException("Required field \"shared_folder_member_policy\" missing.", p.getCurrentLocation());
                 }
                 if (f_sharedFolderJoinPolicy == null) {
-                    throw new JsonParseException(p, "Required field \"shared_folder_join_policy\" missing.");
+                    throw new JsonParseException("Required field \"shared_folder_join_policy\" missing.", p.getCurrentLocation());
                 }
                 if (f_sharedLinkCreatePolicy == null) {
-                    throw new JsonParseException(p, "Required field \"shared_link_create_policy\" missing.");
+                    throw new JsonParseException("Required field \"shared_link_create_policy\" missing.", p.getCurrentLocation());
                 }
                 value = new TeamSharingPolicies(f_sharedFolderMemberPolicy, f_sharedFolderJoinPolicy, f_sharedLinkCreatePolicy);
             }
             else {
-                throw new JsonParseException(p, "No subtype found that matches tag: \"" + tag + "\"");
+                throw new JsonParseException("No subtype found that matches tag: \"" + tag + "\"", p.getCurrentLocation());
             }
             if (!collapsed) {
                 expectEndObject(p);

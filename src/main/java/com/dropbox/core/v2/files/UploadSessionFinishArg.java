@@ -147,15 +147,15 @@ public class UploadSessionFinishArg {
                     }
                 }
                 if (f_cursor == null) {
-                    throw new JsonParseException(p, "Required field \"cursor\" missing.");
+                    throw new JsonParseException("Required field \"cursor\" missing.", p.getCurrentLocation());
                 }
                 if (f_commit == null) {
-                    throw new JsonParseException(p, "Required field \"commit\" missing.");
+                    throw new JsonParseException("Required field \"commit\" missing.", p.getCurrentLocation());
                 }
                 value = new UploadSessionFinishArg(f_cursor, f_commit);
             }
             else {
-                throw new JsonParseException(p, "No subtype found that matches tag: \"" + tag + "\"");
+                throw new JsonParseException("No subtype found that matches tag: \"" + tag + "\"", p.getCurrentLocation());
             }
             if (!collapsed) {
                 expectEndObject(p);

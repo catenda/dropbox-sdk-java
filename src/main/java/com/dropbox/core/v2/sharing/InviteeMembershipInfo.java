@@ -310,15 +310,15 @@ public class InviteeMembershipInfo extends MembershipInfo {
                     }
                 }
                 if (f_accessType == null) {
-                    throw new JsonParseException(p, "Required field \"access_type\" missing.");
+                    throw new JsonParseException("Required field \"access_type\" missing.", p.getCurrentLocation());
                 }
                 if (f_invitee == null) {
-                    throw new JsonParseException(p, "Required field \"invitee\" missing.");
+                    throw new JsonParseException("Required field \"invitee\" missing.", p.getCurrentLocation());
                 }
                 value = new InviteeMembershipInfo(f_accessType, f_invitee, f_permissions, f_initials, f_isInherited, f_user);
             }
             else {
-                throw new JsonParseException(p, "No subtype found that matches tag: \"" + tag + "\"");
+                throw new JsonParseException("No subtype found that matches tag: \"" + tag + "\"", p.getCurrentLocation());
             }
             if (!collapsed) {
                 expectEndObject(p);

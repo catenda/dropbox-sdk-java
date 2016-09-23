@@ -477,13 +477,13 @@ public class SharedLinkMetadata {
                     }
                 }
                 if (f_url == null) {
-                    throw new JsonParseException(p, "Required field \"url\" missing.");
+                    throw new JsonParseException("Required field \"url\" missing.", p.getCurrentLocation());
                 }
                 if (f_name == null) {
-                    throw new JsonParseException(p, "Required field \"name\" missing.");
+                    throw new JsonParseException("Required field \"name\" missing.", p.getCurrentLocation());
                 }
                 if (f_linkPermissions == null) {
-                    throw new JsonParseException(p, "Required field \"link_permissions\" missing.");
+                    throw new JsonParseException("Required field \"link_permissions\" missing.", p.getCurrentLocation());
                 }
                 value = new SharedLinkMetadata(f_url, f_name, f_linkPermissions, f_id, f_expires, f_pathLower, f_teamMemberInfo, f_contentOwnerTeamInfo);
             }
@@ -497,7 +497,7 @@ public class SharedLinkMetadata {
                 value = FolderLinkMetadata.Serializer.INSTANCE.deserialize(p, true);
             }
             else {
-                throw new JsonParseException(p, "No subtype found that matches tag: \"" + tag + "\"");
+                throw new JsonParseException("No subtype found that matches tag: \"" + tag + "\"", p.getCurrentLocation());
             }
             if (!collapsed) {
                 expectEndObject(p);

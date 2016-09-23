@@ -150,15 +150,15 @@ public class PropertyField {
                     }
                 }
                 if (f_name == null) {
-                    throw new JsonParseException(p, "Required field \"name\" missing.");
+                    throw new JsonParseException("Required field \"name\" missing.", p.getCurrentLocation());
                 }
                 if (f_value == null) {
-                    throw new JsonParseException(p, "Required field \"value\" missing.");
+                    throw new JsonParseException("Required field \"value\" missing.", p.getCurrentLocation());
                 }
                 value = new PropertyField(f_name, f_value);
             }
             else {
-                throw new JsonParseException(p, "No subtype found that matches tag: \"" + tag + "\"");
+                throw new JsonParseException("No subtype found that matches tag: \"" + tag + "\"", p.getCurrentLocation());
             }
             if (!collapsed) {
                 expectEndObject(p);

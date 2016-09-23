@@ -558,36 +558,36 @@ public class FullAccount extends Account {
                     }
                 }
                 if (f_accountId == null) {
-                    throw new JsonParseException(p, "Required field \"account_id\" missing.");
+                    throw new JsonParseException("Required field \"account_id\" missing.", p.getCurrentLocation());
                 }
                 if (f_name == null) {
-                    throw new JsonParseException(p, "Required field \"name\" missing.");
+                    throw new JsonParseException("Required field \"name\" missing.", p.getCurrentLocation());
                 }
                 if (f_email == null) {
-                    throw new JsonParseException(p, "Required field \"email\" missing.");
+                    throw new JsonParseException("Required field \"email\" missing.", p.getCurrentLocation());
                 }
                 if (f_emailVerified == null) {
-                    throw new JsonParseException(p, "Required field \"email_verified\" missing.");
+                    throw new JsonParseException("Required field \"email_verified\" missing.", p.getCurrentLocation());
                 }
                 if (f_disabled == null) {
-                    throw new JsonParseException(p, "Required field \"disabled\" missing.");
+                    throw new JsonParseException("Required field \"disabled\" missing.", p.getCurrentLocation());
                 }
                 if (f_locale == null) {
-                    throw new JsonParseException(p, "Required field \"locale\" missing.");
+                    throw new JsonParseException("Required field \"locale\" missing.", p.getCurrentLocation());
                 }
                 if (f_referralLink == null) {
-                    throw new JsonParseException(p, "Required field \"referral_link\" missing.");
+                    throw new JsonParseException("Required field \"referral_link\" missing.", p.getCurrentLocation());
                 }
                 if (f_isPaired == null) {
-                    throw new JsonParseException(p, "Required field \"is_paired\" missing.");
+                    throw new JsonParseException("Required field \"is_paired\" missing.", p.getCurrentLocation());
                 }
                 if (f_accountType == null) {
-                    throw new JsonParseException(p, "Required field \"account_type\" missing.");
+                    throw new JsonParseException("Required field \"account_type\" missing.", p.getCurrentLocation());
                 }
                 value = new FullAccount(f_accountId, f_name, f_email, f_emailVerified, f_disabled, f_locale, f_referralLink, f_isPaired, f_accountType, f_profilePhotoUrl, f_country, f_team, f_teamMemberId);
             }
             else {
-                throw new JsonParseException(p, "No subtype found that matches tag: \"" + tag + "\"");
+                throw new JsonParseException("No subtype found that matches tag: \"" + tag + "\"", p.getCurrentLocation());
             }
             if (!collapsed) {
                 expectEndObject(p);

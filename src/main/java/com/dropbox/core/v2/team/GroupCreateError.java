@@ -80,7 +80,7 @@ public enum GroupCreateError {
                 tag = readTag(p);
             }
             if (tag == null) {
-                throw new JsonParseException(p, "Required field missing: " + TAG_FIELD);
+                throw new JsonParseException("Required field missing: " + TAG_FIELD, p.getCurrentLocation());
             }
             else if ("group_name_already_used".equals(tag)) {
                 value = GroupCreateError.GROUP_NAME_ALREADY_USED;

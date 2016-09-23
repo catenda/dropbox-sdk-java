@@ -433,15 +433,15 @@ class AddFileMemberArgs {
                     }
                 }
                 if (f_file == null) {
-                    throw new JsonParseException(p, "Required field \"file\" missing.");
+                    throw new JsonParseException("Required field \"file\" missing.", p.getCurrentLocation());
                 }
                 if (f_members == null) {
-                    throw new JsonParseException(p, "Required field \"members\" missing.");
+                    throw new JsonParseException("Required field \"members\" missing.", p.getCurrentLocation());
                 }
                 value = new AddFileMemberArgs(f_file, f_members, f_customMessage, f_quiet, f_accessLevel, f_addMessageAsComment);
             }
             else {
-                throw new JsonParseException(p, "No subtype found that matches tag: \"" + tag + "\"");
+                throw new JsonParseException("No subtype found that matches tag: \"" + tag + "\"", p.getCurrentLocation());
             }
             if (!collapsed) {
                 expectEndObject(p);

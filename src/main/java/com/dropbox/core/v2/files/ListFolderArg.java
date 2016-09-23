@@ -378,12 +378,12 @@ public class ListFolderArg {
                     }
                 }
                 if (f_path == null) {
-                    throw new JsonParseException(p, "Required field \"path\" missing.");
+                    throw new JsonParseException("Required field \"path\" missing.", p.getCurrentLocation());
                 }
                 value = new ListFolderArg(f_path, f_recursive, f_includeMediaInfo, f_includeDeleted, f_includeHasExplicitSharedMembers);
             }
             else {
-                throw new JsonParseException(p, "No subtype found that matches tag: \"" + tag + "\"");
+                throw new JsonParseException("No subtype found that matches tag: \"" + tag + "\"", p.getCurrentLocation());
             }
             if (!collapsed) {
                 expectEndObject(p);

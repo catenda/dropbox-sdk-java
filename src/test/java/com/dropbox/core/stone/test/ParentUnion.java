@@ -58,7 +58,7 @@ public enum ParentUnion {
                 tag = readTag(p);
             }
             if (tag == null) {
-                throw new JsonParseException(p, "Required field missing: " + TAG_FIELD);
+                throw new JsonParseException("Required field missing: " + TAG_FIELD, p.getCurrentLocation());
             }
             else if ("alpha".equals(tag)) {
                 value = ParentUnion.ALPHA;
@@ -67,7 +67,7 @@ public enum ParentUnion {
                 value = ParentUnion.BETA;
             }
             else {
-                throw new JsonParseException(p, "Unknown tag: " + tag);
+                throw new JsonParseException("Unknown tag: " + tag, p.getCurrentLocation());
             }
             if (!collapsed) {
                 expectEndObject(p);

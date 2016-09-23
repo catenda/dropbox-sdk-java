@@ -184,15 +184,15 @@ class ModifySharedLinkSettingsArgs {
                     }
                 }
                 if (f_url == null) {
-                    throw new JsonParseException(p, "Required field \"url\" missing.");
+                    throw new JsonParseException("Required field \"url\" missing.", p.getCurrentLocation());
                 }
                 if (f_settings == null) {
-                    throw new JsonParseException(p, "Required field \"settings\" missing.");
+                    throw new JsonParseException("Required field \"settings\" missing.", p.getCurrentLocation());
                 }
                 value = new ModifySharedLinkSettingsArgs(f_url, f_settings, f_removeExpiration);
             }
             else {
-                throw new JsonParseException(p, "No subtype found that matches tag: \"" + tag + "\"");
+                throw new JsonParseException("No subtype found that matches tag: \"" + tag + "\"", p.getCurrentLocation());
             }
             if (!collapsed) {
                 expectEndObject(p);

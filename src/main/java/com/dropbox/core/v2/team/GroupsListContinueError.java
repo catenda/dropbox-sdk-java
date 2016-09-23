@@ -64,7 +64,7 @@ public enum GroupsListContinueError {
                 tag = readTag(p);
             }
             if (tag == null) {
-                throw new JsonParseException(p, "Required field missing: " + TAG_FIELD);
+                throw new JsonParseException("Required field missing: " + TAG_FIELD, p.getCurrentLocation());
             }
             else if ("invalid_cursor".equals(tag)) {
                 value = GroupsListContinueError.INVALID_CURSOR;

@@ -340,7 +340,7 @@ public final class LookupError {
                 tag = readTag(p);
             }
             if (tag == null) {
-                throw new JsonParseException(p, "Required field missing: " + TAG_FIELD);
+                throw new JsonParseException("Required field missing: " + TAG_FIELD, p.getCurrentLocation());
             }
             else if ("malformed_path".equals(tag)) {
                 String fieldValue = null;

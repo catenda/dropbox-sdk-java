@@ -177,18 +177,18 @@ public class SearchResult {
                     }
                 }
                 if (f_matches == null) {
-                    throw new JsonParseException(p, "Required field \"matches\" missing.");
+                    throw new JsonParseException("Required field \"matches\" missing.", p.getCurrentLocation());
                 }
                 if (f_more == null) {
-                    throw new JsonParseException(p, "Required field \"more\" missing.");
+                    throw new JsonParseException("Required field \"more\" missing.", p.getCurrentLocation());
                 }
                 if (f_start == null) {
-                    throw new JsonParseException(p, "Required field \"start\" missing.");
+                    throw new JsonParseException("Required field \"start\" missing.", p.getCurrentLocation());
                 }
                 value = new SearchResult(f_matches, f_more, f_start);
             }
             else {
-                throw new JsonParseException(p, "No subtype found that matches tag: \"" + tag + "\"");
+                throw new JsonParseException("No subtype found that matches tag: \"" + tag + "\"", p.getCurrentLocation());
             }
             if (!collapsed) {
                 expectEndObject(p);

@@ -487,30 +487,30 @@ public class SharedFolderMetadata extends SharedFolderMetadataBase {
                     }
                 }
                 if (f_accessType == null) {
-                    throw new JsonParseException(p, "Required field \"access_type\" missing.");
+                    throw new JsonParseException("Required field \"access_type\" missing.", p.getCurrentLocation());
                 }
                 if (f_isTeamFolder == null) {
-                    throw new JsonParseException(p, "Required field \"is_team_folder\" missing.");
+                    throw new JsonParseException("Required field \"is_team_folder\" missing.", p.getCurrentLocation());
                 }
                 if (f_policy == null) {
-                    throw new JsonParseException(p, "Required field \"policy\" missing.");
+                    throw new JsonParseException("Required field \"policy\" missing.", p.getCurrentLocation());
                 }
                 if (f_name == null) {
-                    throw new JsonParseException(p, "Required field \"name\" missing.");
+                    throw new JsonParseException("Required field \"name\" missing.", p.getCurrentLocation());
                 }
                 if (f_sharedFolderId == null) {
-                    throw new JsonParseException(p, "Required field \"shared_folder_id\" missing.");
+                    throw new JsonParseException("Required field \"shared_folder_id\" missing.", p.getCurrentLocation());
                 }
                 if (f_timeInvited == null) {
-                    throw new JsonParseException(p, "Required field \"time_invited\" missing.");
+                    throw new JsonParseException("Required field \"time_invited\" missing.", p.getCurrentLocation());
                 }
                 if (f_previewUrl == null) {
-                    throw new JsonParseException(p, "Required field \"preview_url\" missing.");
+                    throw new JsonParseException("Required field \"preview_url\" missing.", p.getCurrentLocation());
                 }
                 value = new SharedFolderMetadata(f_accessType, f_isTeamFolder, f_policy, f_name, f_sharedFolderId, f_timeInvited, f_previewUrl, f_ownerTeam, f_parentSharedFolderId, f_pathLower, f_permissions);
             }
             else {
-                throw new JsonParseException(p, "No subtype found that matches tag: \"" + tag + "\"");
+                throw new JsonParseException("No subtype found that matches tag: \"" + tag + "\"", p.getCurrentLocation());
             }
             if (!collapsed) {
                 expectEndObject(p);

@@ -159,15 +159,15 @@ public class TeamMemberPolicies {
                     }
                 }
                 if (f_sharing == null) {
-                    throw new JsonParseException(p, "Required field \"sharing\" missing.");
+                    throw new JsonParseException("Required field \"sharing\" missing.", p.getCurrentLocation());
                 }
                 if (f_emmState == null) {
-                    throw new JsonParseException(p, "Required field \"emm_state\" missing.");
+                    throw new JsonParseException("Required field \"emm_state\" missing.", p.getCurrentLocation());
                 }
                 value = new TeamMemberPolicies(f_sharing, f_emmState);
             }
             else {
-                throw new JsonParseException(p, "No subtype found that matches tag: \"" + tag + "\"");
+                throw new JsonParseException("No subtype found that matches tag: \"" + tag + "\"", p.getCurrentLocation());
             }
             if (!collapsed) {
                 expectEndObject(p);

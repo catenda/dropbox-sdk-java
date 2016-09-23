@@ -542,54 +542,54 @@ public class GetActivityReport extends BaseDfbReport {
                     }
                 }
                 if (f_startDate == null) {
-                    throw new JsonParseException(p, "Required field \"start_date\" missing.");
+                    throw new JsonParseException("Required field \"start_date\" missing.", p.getCurrentLocation());
                 }
                 if (f_adds == null) {
-                    throw new JsonParseException(p, "Required field \"adds\" missing.");
+                    throw new JsonParseException("Required field \"adds\" missing.", p.getCurrentLocation());
                 }
                 if (f_edits == null) {
-                    throw new JsonParseException(p, "Required field \"edits\" missing.");
+                    throw new JsonParseException("Required field \"edits\" missing.", p.getCurrentLocation());
                 }
                 if (f_deletes == null) {
-                    throw new JsonParseException(p, "Required field \"deletes\" missing.");
+                    throw new JsonParseException("Required field \"deletes\" missing.", p.getCurrentLocation());
                 }
                 if (f_activeUsers28Day == null) {
-                    throw new JsonParseException(p, "Required field \"active_users_28_day\" missing.");
+                    throw new JsonParseException("Required field \"active_users_28_day\" missing.", p.getCurrentLocation());
                 }
                 if (f_activeUsers7Day == null) {
-                    throw new JsonParseException(p, "Required field \"active_users_7_day\" missing.");
+                    throw new JsonParseException("Required field \"active_users_7_day\" missing.", p.getCurrentLocation());
                 }
                 if (f_activeUsers1Day == null) {
-                    throw new JsonParseException(p, "Required field \"active_users_1_day\" missing.");
+                    throw new JsonParseException("Required field \"active_users_1_day\" missing.", p.getCurrentLocation());
                 }
                 if (f_activeSharedFolders28Day == null) {
-                    throw new JsonParseException(p, "Required field \"active_shared_folders_28_day\" missing.");
+                    throw new JsonParseException("Required field \"active_shared_folders_28_day\" missing.", p.getCurrentLocation());
                 }
                 if (f_activeSharedFolders7Day == null) {
-                    throw new JsonParseException(p, "Required field \"active_shared_folders_7_day\" missing.");
+                    throw new JsonParseException("Required field \"active_shared_folders_7_day\" missing.", p.getCurrentLocation());
                 }
                 if (f_activeSharedFolders1Day == null) {
-                    throw new JsonParseException(p, "Required field \"active_shared_folders_1_day\" missing.");
+                    throw new JsonParseException("Required field \"active_shared_folders_1_day\" missing.", p.getCurrentLocation());
                 }
                 if (f_sharedLinksCreated == null) {
-                    throw new JsonParseException(p, "Required field \"shared_links_created\" missing.");
+                    throw new JsonParseException("Required field \"shared_links_created\" missing.", p.getCurrentLocation());
                 }
                 if (f_sharedLinksViewedByTeam == null) {
-                    throw new JsonParseException(p, "Required field \"shared_links_viewed_by_team\" missing.");
+                    throw new JsonParseException("Required field \"shared_links_viewed_by_team\" missing.", p.getCurrentLocation());
                 }
                 if (f_sharedLinksViewedByOutsideUser == null) {
-                    throw new JsonParseException(p, "Required field \"shared_links_viewed_by_outside_user\" missing.");
+                    throw new JsonParseException("Required field \"shared_links_viewed_by_outside_user\" missing.", p.getCurrentLocation());
                 }
                 if (f_sharedLinksViewedByNotLoggedIn == null) {
-                    throw new JsonParseException(p, "Required field \"shared_links_viewed_by_not_logged_in\" missing.");
+                    throw new JsonParseException("Required field \"shared_links_viewed_by_not_logged_in\" missing.", p.getCurrentLocation());
                 }
                 if (f_sharedLinksViewedTotal == null) {
-                    throw new JsonParseException(p, "Required field \"shared_links_viewed_total\" missing.");
+                    throw new JsonParseException("Required field \"shared_links_viewed_total\" missing.", p.getCurrentLocation());
                 }
                 value = new GetActivityReport(f_startDate, f_adds, f_edits, f_deletes, f_activeUsers28Day, f_activeUsers7Day, f_activeUsers1Day, f_activeSharedFolders28Day, f_activeSharedFolders7Day, f_activeSharedFolders1Day, f_sharedLinksCreated, f_sharedLinksViewedByTeam, f_sharedLinksViewedByOutsideUser, f_sharedLinksViewedByNotLoggedIn, f_sharedLinksViewedTotal);
             }
             else {
-                throw new JsonParseException(p, "No subtype found that matches tag: \"" + tag + "\"");
+                throw new JsonParseException("No subtype found that matches tag: \"" + tag + "\"", p.getCurrentLocation());
             }
             if (!collapsed) {
                 expectEndObject(p);

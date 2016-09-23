@@ -285,7 +285,7 @@ public final class SharedFolderMemberError {
                 tag = readTag(p);
             }
             if (tag == null) {
-                throw new JsonParseException(p, "Required field missing: " + TAG_FIELD);
+                throw new JsonParseException("Required field missing: " + TAG_FIELD, p.getCurrentLocation());
             }
             else if ("invalid_dropbox_id".equals(tag)) {
                 value = SharedFolderMemberError.INVALID_DROPBOX_ID;

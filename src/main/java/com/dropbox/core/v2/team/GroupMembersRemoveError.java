@@ -78,7 +78,7 @@ public enum GroupMembersRemoveError {
                 tag = readTag(p);
             }
             if (tag == null) {
-                throw new JsonParseException(p, "Required field missing: " + TAG_FIELD);
+                throw new JsonParseException("Required field missing: " + TAG_FIELD, p.getCurrentLocation());
             }
             else if ("group_not_found".equals(tag)) {
                 value = GroupMembersRemoveError.GROUP_NOT_FOUND;
@@ -93,7 +93,7 @@ public enum GroupMembersRemoveError {
                 value = GroupMembersRemoveError.GROUP_NOT_IN_TEAM;
             }
             else {
-                throw new JsonParseException(p, "Unknown tag: " + tag);
+                throw new JsonParseException("Unknown tag: " + tag, p.getCurrentLocation());
             }
             if (!collapsed) {
                 expectEndObject(p);

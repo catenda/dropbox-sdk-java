@@ -115,12 +115,12 @@ public class UploadSessionOffsetError {
                     }
                 }
                 if (f_correctOffset == null) {
-                    throw new JsonParseException(p, "Required field \"correct_offset\" missing.");
+                    throw new JsonParseException("Required field \"correct_offset\" missing.", p.getCurrentLocation());
                 }
                 value = new UploadSessionOffsetError(f_correctOffset);
             }
             else {
-                throw new JsonParseException(p, "No subtype found that matches tag: \"" + tag + "\"");
+                throw new JsonParseException("No subtype found that matches tag: \"" + tag + "\"", p.getCurrentLocation());
             }
             if (!collapsed) {
                 expectEndObject(p);

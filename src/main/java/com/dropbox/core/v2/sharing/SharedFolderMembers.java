@@ -238,18 +238,18 @@ public class SharedFolderMembers {
                     }
                 }
                 if (f_users == null) {
-                    throw new JsonParseException(p, "Required field \"users\" missing.");
+                    throw new JsonParseException("Required field \"users\" missing.", p.getCurrentLocation());
                 }
                 if (f_groups == null) {
-                    throw new JsonParseException(p, "Required field \"groups\" missing.");
+                    throw new JsonParseException("Required field \"groups\" missing.", p.getCurrentLocation());
                 }
                 if (f_invitees == null) {
-                    throw new JsonParseException(p, "Required field \"invitees\" missing.");
+                    throw new JsonParseException("Required field \"invitees\" missing.", p.getCurrentLocation());
                 }
                 value = new SharedFolderMembers(f_users, f_groups, f_invitees, f_cursor);
             }
             else {
-                throw new JsonParseException(p, "No subtype found that matches tag: \"" + tag + "\"");
+                throw new JsonParseException("No subtype found that matches tag: \"" + tag + "\"", p.getCurrentLocation());
             }
             if (!collapsed) {
                 expectEndObject(p);

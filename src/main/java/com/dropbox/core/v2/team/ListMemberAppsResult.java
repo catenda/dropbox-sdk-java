@@ -129,12 +129,12 @@ public class ListMemberAppsResult {
                     }
                 }
                 if (f_linkedApiApps == null) {
-                    throw new JsonParseException(p, "Required field \"linked_api_apps\" missing.");
+                    throw new JsonParseException("Required field \"linked_api_apps\" missing.", p.getCurrentLocation());
                 }
                 value = new ListMemberAppsResult(f_linkedApiApps);
             }
             else {
-                throw new JsonParseException(p, "No subtype found that matches tag: \"" + tag + "\"");
+                throw new JsonParseException("No subtype found that matches tag: \"" + tag + "\"", p.getCurrentLocation());
             }
             if (!collapsed) {
                 expectEndObject(p);

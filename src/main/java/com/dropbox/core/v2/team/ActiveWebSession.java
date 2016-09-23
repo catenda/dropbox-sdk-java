@@ -355,21 +355,21 @@ public class ActiveWebSession extends DeviceSession {
                     }
                 }
                 if (f_sessionId == null) {
-                    throw new JsonParseException(p, "Required field \"session_id\" missing.");
+                    throw new JsonParseException("Required field \"session_id\" missing.", p.getCurrentLocation());
                 }
                 if (f_userAgent == null) {
-                    throw new JsonParseException(p, "Required field \"user_agent\" missing.");
+                    throw new JsonParseException("Required field \"user_agent\" missing.", p.getCurrentLocation());
                 }
                 if (f_os == null) {
-                    throw new JsonParseException(p, "Required field \"os\" missing.");
+                    throw new JsonParseException("Required field \"os\" missing.", p.getCurrentLocation());
                 }
                 if (f_browser == null) {
-                    throw new JsonParseException(p, "Required field \"browser\" missing.");
+                    throw new JsonParseException("Required field \"browser\" missing.", p.getCurrentLocation());
                 }
                 value = new ActiveWebSession(f_sessionId, f_userAgent, f_os, f_browser, f_ipAddress, f_country, f_created, f_updated);
             }
             else {
-                throw new JsonParseException(p, "No subtype found that matches tag: \"" + tag + "\"");
+                throw new JsonParseException("No subtype found that matches tag: \"" + tag + "\"", p.getCurrentLocation());
             }
             if (!collapsed) {
                 expectEndObject(p);

@@ -116,7 +116,7 @@ public enum PermissionDeniedReason {
                 tag = readTag(p);
             }
             if (tag == null) {
-                throw new JsonParseException(p, "Required field missing: " + TAG_FIELD);
+                throw new JsonParseException("Required field missing: " + TAG_FIELD, p.getCurrentLocation());
             }
             else if ("user_not_same_team_as_owner".equals(tag)) {
                 value = PermissionDeniedReason.USER_NOT_SAME_TEAM_AS_OWNER;

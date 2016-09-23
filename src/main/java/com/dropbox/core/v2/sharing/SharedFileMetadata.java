@@ -540,21 +540,21 @@ public class SharedFileMetadata {
                     }
                 }
                 if (f_policy == null) {
-                    throw new JsonParseException(p, "Required field \"policy\" missing.");
+                    throw new JsonParseException("Required field \"policy\" missing.", p.getCurrentLocation());
                 }
                 if (f_previewUrl == null) {
-                    throw new JsonParseException(p, "Required field \"preview_url\" missing.");
+                    throw new JsonParseException("Required field \"preview_url\" missing.", p.getCurrentLocation());
                 }
                 if (f_name == null) {
-                    throw new JsonParseException(p, "Required field \"name\" missing.");
+                    throw new JsonParseException("Required field \"name\" missing.", p.getCurrentLocation());
                 }
                 if (f_id == null) {
-                    throw new JsonParseException(p, "Required field \"id\" missing.");
+                    throw new JsonParseException("Required field \"id\" missing.", p.getCurrentLocation());
                 }
                 value = new SharedFileMetadata(f_policy, f_previewUrl, f_name, f_id, f_permissions, f_ownerTeam, f_parentSharedFolderId, f_pathLower, f_pathDisplay);
             }
             else {
-                throw new JsonParseException(p, "No subtype found that matches tag: \"" + tag + "\"");
+                throw new JsonParseException("No subtype found that matches tag: \"" + tag + "\"", p.getCurrentLocation());
             }
             if (!collapsed) {
                 expectEndObject(p);

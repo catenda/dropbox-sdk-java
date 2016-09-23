@@ -140,15 +140,15 @@ public class GpsCoordinates {
                     }
                 }
                 if (f_latitude == null) {
-                    throw new JsonParseException(p, "Required field \"latitude\" missing.");
+                    throw new JsonParseException("Required field \"latitude\" missing.", p.getCurrentLocation());
                 }
                 if (f_longitude == null) {
-                    throw new JsonParseException(p, "Required field \"longitude\" missing.");
+                    throw new JsonParseException("Required field \"longitude\" missing.", p.getCurrentLocation());
                 }
                 value = new GpsCoordinates(f_latitude, f_longitude);
             }
             else {
-                throw new JsonParseException(p, "No subtype found that matches tag: \"" + tag + "\"");
+                throw new JsonParseException("No subtype found that matches tag: \"" + tag + "\"", p.getCurrentLocation());
             }
             if (!collapsed) {
                 expectEndObject(p);

@@ -151,15 +151,15 @@ public class StorageBucket {
                     }
                 }
                 if (f_bucket == null) {
-                    throw new JsonParseException(p, "Required field \"bucket\" missing.");
+                    throw new JsonParseException("Required field \"bucket\" missing.", p.getCurrentLocation());
                 }
                 if (f_users == null) {
-                    throw new JsonParseException(p, "Required field \"users\" missing.");
+                    throw new JsonParseException("Required field \"users\" missing.", p.getCurrentLocation());
                 }
                 value = new StorageBucket(f_bucket, f_users);
             }
             else {
-                throw new JsonParseException(p, "No subtype found that matches tag: \"" + tag + "\"");
+                throw new JsonParseException("No subtype found that matches tag: \"" + tag + "\"", p.getCurrentLocation());
             }
             if (!collapsed) {
                 expectEndObject(p);

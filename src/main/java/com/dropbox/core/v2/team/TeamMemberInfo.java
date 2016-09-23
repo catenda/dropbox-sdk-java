@@ -150,15 +150,15 @@ public class TeamMemberInfo {
                     }
                 }
                 if (f_profile == null) {
-                    throw new JsonParseException(p, "Required field \"profile\" missing.");
+                    throw new JsonParseException("Required field \"profile\" missing.", p.getCurrentLocation());
                 }
                 if (f_role == null) {
-                    throw new JsonParseException(p, "Required field \"role\" missing.");
+                    throw new JsonParseException("Required field \"role\" missing.", p.getCurrentLocation());
                 }
                 value = new TeamMemberInfo(f_profile, f_role);
             }
             else {
-                throw new JsonParseException(p, "No subtype found that matches tag: \"" + tag + "\"");
+                throw new JsonParseException("No subtype found that matches tag: \"" + tag + "\"", p.getCurrentLocation());
             }
             if (!collapsed) {
                 expectEndObject(p);

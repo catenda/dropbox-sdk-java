@@ -299,12 +299,12 @@ public class LinkPermissions {
                     }
                 }
                 if (f_canRevoke == null) {
-                    throw new JsonParseException(p, "Required field \"can_revoke\" missing.");
+                    throw new JsonParseException("Required field \"can_revoke\" missing.", p.getCurrentLocation());
                 }
                 value = new LinkPermissions(f_canRevoke, f_resolvedVisibility, f_requestedVisibility, f_revokeFailureReason);
             }
             else {
-                throw new JsonParseException(p, "No subtype found that matches tag: \"" + tag + "\"");
+                throw new JsonParseException("No subtype found that matches tag: \"" + tag + "\"", p.getCurrentLocation());
             }
             if (!collapsed) {
                 expectEndObject(p);

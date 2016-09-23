@@ -213,7 +213,7 @@ public class PhotoMetadata extends MediaMetadata {
                 value = new PhotoMetadata(f_dimensions, f_location, f_timeTaken);
             }
             else {
-                throw new JsonParseException(p, "No subtype found that matches tag: \"" + tag + "\"");
+                throw new JsonParseException("No subtype found that matches tag: \"" + tag + "\"", p.getCurrentLocation());
             }
             if (!collapsed) {
                 expectEndObject(p);
